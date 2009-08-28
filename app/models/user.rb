@@ -25,7 +25,12 @@ class User < ActiveRecord::Base
   # anything else you want your user to change should be added here.
   attr_accessible :login, :email, :name, :password, :password_confirmation
 
-
+  has_many :user_projects
+  has_many :projects, :through => :user_projects
+  
+  def owned_projects
+    Project.find_all_by_owner_id(self.id)
+  end
 
   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
   #
