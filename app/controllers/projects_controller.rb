@@ -1,8 +1,10 @@
 class ProjectsController < ApplicationController
+  before_filter :owns_project, :only => [:edit, :update, :destroy]
+  before_filter :is_part_of_project, :only => [:show]
   # GET /projects
   # GET /projects.xml
   def index
-    @projects = Project.all
+    @projects = current_user.projects
 
     respond_to do |format|
       format.html # index.html.erb
@@ -40,8 +42,8 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.xml
   def create
+    params[:project][:owner_id] = current_user.id
     @project = Project.new(params[:project])
-
     respond_to do |format|
       if @project.save
         flash[:notice] = 'Project was successfully created.'
@@ -82,4 +84,12 @@ class ProjectsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  private
+    def owns_project
+      Project.find(params[:id]).owner == current_user
+    end
+    def is_part_of_project
+      current_user.project_ids.include? params[:id]
+    end
 end
