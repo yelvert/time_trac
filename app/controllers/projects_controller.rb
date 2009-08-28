@@ -44,6 +44,7 @@ class ProjectsController < ApplicationController
   def create
     params[:project][:owner_id] = current_user.id
     @project = Project.new(params[:project])
+    @project.users << current_user
     respond_to do |format|
       if @project.save
         flash[:notice] = 'Project was successfully created.'
@@ -85,11 +86,11 @@ class ProjectsController < ApplicationController
     end
   end
   
-  private
-    def owns_project
-      Project.find(params[:id]).owner == current_user
-    end
-    def is_part_of_project
-      current_user.project_ids.include? params[:id]
-    end
+  def owns_project
+    current_user.owns_project(params[:id])
+  end
+  
+  def is_part_of_project
+    current_user.is_part_of_project(params[:id])
+  end
 end

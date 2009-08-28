@@ -977,3 +977,392 @@ Processing ProjectsController#edit (for 127.0.0.1 at 2009-08-27 23:25:32) [GET]
 Rendering template within layouts/projects
 Rendering projects/edit
 Completed in 18ms (View: 5, DB: 1) | 200 OK [http://localhost/projects/1/edit]
+
+
+Processing ProjectsController#edit (for 127.0.0.1 at 2009-08-27 23:26:49) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/projects
+Rendering projects/edit
+Completed in 18ms (View: 4, DB: 1) | 200 OK [http://localhost/projects/1/edit]
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-08-27 23:26:52) [GET]
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/projects
+Rendering projects/index
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "user_projects" ON "projects".id = "user_projects".project_id WHERE (("user_projects".user_id = 2)) [0m
+Completed in 16ms (View: 4, DB: 0) | 200 OK [http://localhost/projects]
+  [4;35;1mProject Load (0.0ms)[0m   [0mSQLite3::SchemaChangedException: no such table: projects: SELECT * FROM "projects" [0m
+  [4;36;1mProject Load (0.5ms)[0m   [0;1mSELECT * FROM "projects" [0m
+  [4;35;1mProject Destroy (0.3ms)[0m   [0mDELETE FROM "projects" WHERE "id" = 1[0m
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-08-27 23:29:04) [GET]
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/projects
+Rendering projects/index
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "user_projects" ON "projects".id = "user_projects".project_id WHERE (("user_projects".user_id = 2)) [0m
+Completed in 15ms (View: 4, DB: 0) | 200 OK [http://localhost/projects]
+
+
+Processing ProjectsController#new (for 127.0.0.1 at 2009-08-27 23:29:34) [GET]
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/projects
+Rendering projects/new
+Completed in 13ms (View: 2, DB: 0) | 200 OK [http://localhost/projects/new]
+
+
+Processing ProjectsController#create (for 127.0.0.1 at 2009-08-27 23:29:39) [POST]
+  Parameters: {"commit"=>"Create", "project"=>{"name"=>"test project"}, "authenticity_token"=>"37ER0mQt5rOPusS5BIaVVUZXLARo5sRs3ZIjElS6Koo="}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [4;36;1mProject Create (0.3ms)[0m   [0;1mINSERT INTO "projects" ("name", "updated_at", "owner_id", "created_at") VALUES('test project', '2009-08-28 04:29:39', 2, '2009-08-28 04:29:39')[0m
+Redirected to http://localhost:3000/projects/2
+Completed in 17ms (DB: 1) | 302 Found [http://localhost/projects]
+
+
+Processing ProjectsController#show (for 127.0.0.1 at 2009-08-27 23:29:39) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [4;36;1mProject Load (0.1ms)[0m   [0;1mSELECT "projects".id FROM "projects" INNER JOIN "user_projects" ON "projects".id = "user_projects".project_id WHERE (("user_projects".user_id = 2)) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 2) [0m
+Rendering template within layouts/projects
+Rendering projects/show
+Completed in 17ms (View: 2, DB: 1) | 200 OK [http://localhost/projects/2]
+
+
+Processing ProjectsController#show (for 127.0.0.1 at 2009-08-27 23:29:54) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [4;35;1mProject Load (0.1ms)[0m   [0mSELECT "projects".id FROM "projects" INNER JOIN "user_projects" ON "projects".id = "user_projects".project_id WHERE (("user_projects".user_id = 2)) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 2) [0m
+Rendering template within layouts/projects
+Rendering projects/show
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Completed in 21ms (View: 6, DB: 1) | 200 OK [http://localhost/projects/2]
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-08-27 23:29:57) [GET]
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/projects
+Rendering projects/index
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "user_projects" ON "projects".id = "user_projects".project_id WHERE (("user_projects".user_id = 2)) [0m
+Completed in 18ms (View: 7, DB: 0) | 200 OK [http://localhost/projects]
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" [0m
+  [4;35;1mProject Destroy (0.4ms)[0m   [0mDELETE FROM "projects" WHERE "id" = 2[0m
+
+
+Processing ProjectsController#new (for 127.0.0.1 at 2009-08-27 23:33:01) [GET]
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/projects
+Rendering projects/new
+Completed in 14ms (View: 2, DB: 0) | 200 OK [http://localhost/projects/new]
+
+
+Processing ProjectsController#create (for 127.0.0.1 at 2009-08-27 23:33:05) [POST]
+  Parameters: {"commit"=>"Create", "project"=>{"name"=>"test project"}, "authenticity_token"=>"37ER0mQt5rOPusS5BIaVVUZXLARo5sRs3ZIjElS6Koo="}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'yelvert' AND "users".id <> 2) LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'tny5357@gmail.com' AND "users".id <> 2) LIMIT 1[0m
+  [4;36;1mProject Create (0.3ms)[0m   [0;1mINSERT INTO "projects" ("name", "updated_at", "owner_id", "created_at") VALUES('test project', '2009-08-28 04:33:05', 2, '2009-08-28 04:33:05')[0m
+  [4;35;1mUserProject Create (0.1ms)[0m   [0mINSERT INTO "user_projects" ("project_id", "updated_at", "user_id", "created_at") VALUES(3, '2009-08-28 04:33:05', 2, '2009-08-28 04:33:05')[0m
+Redirected to http://localhost:3000/projects/3
+Completed in 77ms (DB: 1) | 302 Found [http://localhost/projects]
+
+
+Processing ProjectsController#show (for 127.0.0.1 at 2009-08-27 23:33:05) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT "projects".id FROM "projects" INNER JOIN "user_projects" ON "projects".id = "user_projects".project_id WHERE (("user_projects".user_id = 2)) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 3) [0m
+Rendering template within layouts/projects
+Rendering projects/show
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Completed in 19ms (View: 3, DB: 1) | 200 OK [http://localhost/projects/3]
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-08-27 23:33:07) [GET]
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/projects
+Rendering projects/index
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "user_projects" ON "projects".id = "user_projects".project_id WHERE (("user_projects".user_id = 2)) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Completed in 20ms (View: 8, DB: 1) | 200 OK [http://localhost/projects]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-08-27 23:38:02) [GET]
+
+NameError (undefined local variable or method `current_user' for ProjectsController:Class):
+  app/controllers/projects_controller.rb:2
+
+Rendered rescues/_trace (25.2ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-08-27 23:38:31) [GET]
+Rendering template within layouts/main
+Rendering sessions/new
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendered layouts/_user_bar (9.6ms)
+Completed in 19ms (View: 17, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2009-08-27 23:38:36) [POST]
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"37ER0mQt5rOPusS5BIaVVUZXLARo5sRs3ZIjElS6Koo=", "login"=>"yelvert", "password"=>"rolltidew5357"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'yelvert') LIMIT 1[0m
+Failed login for 'yelvert' from 127.0.0.1 at Fri Aug 28 04:38:36 UTC 2009
+Rendering template within layouts/main
+Rendering sessions/new
+Rendered layouts/_user_bar (0.2ms)
+Completed in 17ms (View: 2, DB: 0) | 200 OK [http://localhost/session]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2009-08-27 23:38:42) [POST]
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"37ER0mQt5rOPusS5BIaVVUZXLARo5sRs3ZIjElS6Koo=", "login"=>"yelvert", "password"=>"rolltide5357"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'yelvert') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 11ms (DB: 0) | 302 Found [http://localhost/session]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-08-27 23:38:42) [GET]
+
+NameError (undefined local variable or method `current_user' for ProjectsController:Class):
+  app/controllers/projects_controller.rb:2
+
+Rendered rescues/_trace (30.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-08-27 23:39:29) [GET]
+
+NameError (undefined local variable or method `params' for ProjectsController:Class):
+  app/controllers/projects_controller.rb:2
+
+Rendered rescues/_trace (27.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-08-27 23:39:42) [GET]
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.[]):
+  app/controllers/projects_controller.rb:2
+
+Rendered rescues/_trace (81.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-08-27 23:46:07) [GET]
+
+SyntaxError (/Users/yelvert/projects/time_trac/app/controllers/projects_controller.rb:2: syntax error, unexpected ',', expecting kEND
+...ject(controller.params[:id])}, :only => [:edit, :update, :de...
+                              ^
+/Users/yelvert/projects/time_trac/app/controllers/projects_controller.rb:3: syntax error, unexpected ',', expecting kEND
+...ject(controller.params[:id])}, :only => [:show]
+                              ^):
+  
+
+Rendered rescues/_trace (24.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-08-27 23:48:09) [GET]
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+
+NoMethodError (protected method `current_user' called for #<ProjectsController:0x242c99c>):
+  app/controllers/projects_controller.rb:2
+
+Rendered rescues/_trace (27.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-08-27 23:51:02) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+
+NameError (undefined local variable or method `current_user' for ProjectsController:Class):
+  app/controllers/projects_controller.rb:2
+
+Rendered rescues/_trace (84.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-08-27 23:51:12) [GET]
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+
+NoMethodError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.owns_project):
+  app/controllers/projects_controller.rb:2
+
+Rendered rescues/_trace (27.6ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-08-27 23:51:41) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+
+NoMethodError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.owns_project):
+  app/controllers/projects_controller.rb:2
+
+Rendered rescues/_trace (27.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-08-27 23:54:27) [GET]
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Project without an ID):
+  app/models/user.rb:36:in `owns_project'
+  app/controllers/projects_controller.rb:2
+
+Rendered rescues/_trace (30.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-08-27 23:54:55) [GET]
+
+SyntaxError (/Users/yelvert/projects/time_trac/app/controllers/projects_controller.rb:2: syntax error, unexpected ',', expecting kEND
+...ject(controller.params[:id])}, :only => [:edit, :update, :de...
+                              ^
+/Users/yelvert/projects/time_trac/app/controllers/projects_controller.rb:3: syntax error, unexpected ',', expecting kEND
+...ject(controller.params[:id])}, :only => [:show]
+                              ^):
+  
+
+Rendered rescues/_trace (25.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-08-27 23:55:25) [GET]
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/projects
+Rendering projects/index
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "user_projects" ON "projects".id = "user_projects".project_id WHERE (("user_projects".user_id = 2)) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Completed in 22ms (View: 10, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2009-08-27 23:57:38) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 66ms (DB: 0) | 302 Found [http://localhost/logout]
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-08-27 23:57:38) [GET]
+Redirected to http://localhost:3000/session/new
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://localhost/]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-08-27 23:57:38) [GET]
+Rendering template within layouts/main
+Rendering sessions/new
+Rendered layouts/_user_bar (0.3ms)
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://localhost/session/new]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2009-08-27 23:57:45) [POST]
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"xifI+up4un2YcKTRZ9i+qxf9O8S/8HoCdrE+G9YCtsY=", "login"=>"yelvert", "password"=>"rolltide5357"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'yelvert') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 12ms (DB: 0) | 302 Found [http://localhost/session]
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-08-27 23:57:45) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/projects
+Rendering projects/index
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "user_projects" ON "projects".id = "user_projects".project_id WHERE (("user_projects".user_id = 2)) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Completed in 20ms (View: 8, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-08-28 00:01:19) [GET]
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/projects
+Rendering projects/index
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "user_projects" ON "projects".id = "user_projects".project_id WHERE (("user_projects".user_id = 2)) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Completed in 20ms (View: 6, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-08-28 00:01:20) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/projects
+Rendering projects/index
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "user_projects" ON "projects".id = "user_projects".project_id WHERE (("user_projects".user_id = 2)) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Completed in 69ms (View: 6, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2009-08-28 00:01:30) [GET]
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 18ms (DB: 0) | 302 Found [http://localhost/logout]
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-08-28 00:01:30) [GET]
+Redirected to http://localhost:3000/session/new
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://localhost/]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-08-28 00:01:30) [GET]
+Rendering template within layouts/main
+Rendering sessions/new
+Rendered layouts/_user_bar (0.2ms)
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://localhost/session/new]
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-08-28 00:01:33) [GET]
+Redirected to http://localhost:3000/session/new
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://localhost/]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-08-28 00:01:33) [GET]
+Rendering template within layouts/main
+Rendering sessions/new
+Rendered layouts/_user_bar (0.2ms)
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://localhost/session/new]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2009-08-28 00:01:39) [POST]
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"HKNFCyAlbCBYmmE79uFRoygojOhdbHWWuznL8nqFZM0=", "login"=>"yelvert", "password"=>"rolltide5357"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'yelvert') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 14ms (DB: 0) | 302 Found [http://localhost/session]
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-08-28 00:01:39) [GET]
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/projects
+Rendering projects/index
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "user_projects" ON "projects".id = "user_projects".project_id WHERE (("user_projects".user_id = 2)) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Completed in 20ms (View: 8, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-08-28 00:04:45) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/projects
+Rendering projects/index
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "user_projects" ON "projects".id = "user_projects".project_id WHERE (("user_projects".user_id = 2)) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Completed in 74ms (View: 5, DB: 1) | 200 OK [http://localhost/]

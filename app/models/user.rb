@@ -31,6 +31,14 @@ class User < ActiveRecord::Base
   def owned_projects
     Project.find_all_by_owner_id(self.id)
   end
+  
+  def owns_project(id)
+    Project.find(id).owner == self
+  end
+  
+  def is_part_of_project(id)
+    self.project_ids.include? id
+  end
 
   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
   #
