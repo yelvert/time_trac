@@ -9,5 +9,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= "#{link_to 'Edit', edit_project_path(@project)} | " if current_user.owns_project(@project.id) %>
 <%= link_to 'Back', projects_path %>

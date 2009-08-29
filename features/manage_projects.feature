@@ -26,6 +26,29 @@ Feature: Manage Projects
 			When I create a new project named newProject with John
 			Then I should see "newProject"
 			And I should see "John"
+			
+		Scenario: Look at Project with Owner
+			Given John owns project Project1
+			When I go to the project page for "Project1"
+			Then I should be on the project page for "Project1"
+			And I should see "John"
+			And I should see "Project1"
+			And I should see "Edit"
+		
+		Scenario: Look at Project with a User that is not the Owner and is not a part of the Project
+			Given I have a user named Bob
+			And Bob owns project Project1
+			When I go to the project page for "Project1"
+			Then I should see "You are not part of this project"
+
+		Scenario: Look at Project with a Project's User but not Owner
+			Given I have a user named Bob
+			And Bob owns project Project1
+			And John is a part of project Project1
+			When I go to the project page for "Project1"
+			Then I should see "Bob"
+			And I should see "Project1"
+			And I should not see "Edit"
 		
 		Scenario: Edit Project with Owner
 			Given John owns project Project1
