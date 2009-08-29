@@ -10,20 +10,27 @@ Given /^(\w+) owns projects? (.+)$/ do |user, projects|
 end
 
 Given /^(\w+) is a part of projects? (.+)$/ do |user, projects|
-  this_user = User.find_by_login(user.downcase)
-  this_users_friend = user = User.create!(:login => "#{user.downcase}s_friend", :password => "testing", :password_confirmation => "testing", :name => "#{user}'s Friend", :email => "#{user.downcase}s_friend@test.com")
+  user = User.find_by_login(user.downcase)
   projects.split(', ').each do |project|
-    p = Project.create!(:name => project, :owner_id => this_users_friend.id)
-    p.users = [this_user, this_users_friend]
+    p = Project.find_by_name(project) || Project.create!(:name => project, :owner_id => user.id)
+    p.users << user
+    p.save
   end
 end
 
-Given /^\w+ does not own and is not a part of projects? (.+)$/ do |projects|
-  user = User.create!(:login => "some_user", :password => "testing", :password_confirmation => "testing", :name => "Some User", :email => "some_user@test.com")
-  projects.split(', ').each do |project|
-    user.projects << Project.create!(:name => project, :owner_id => user.id)
-  end
+When /^I create a new project named (.+) with (.+)$/ do |project, name|
+  visit new_project_path
+  fill_in "Name", :with => project
+  click_button "Create"
 end
+
+When /^I change the name of project "([^\"]*)" to "([^\"]*)"$/ do |oldName, newName|
+  visit edit_project_path(Project.find_by_name(oldName))
+  fill_in "Name", :with => newName
+  click_button "Update"
+end
+
+
 
 Then /^I should see edit and destroy for (.+)$/ do |projects|
   projects.split(', ').each do |project|

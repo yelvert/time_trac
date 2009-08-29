@@ -87,10 +87,18 @@ class ProjectsController < ApplicationController
   end
   
   def owns_project
-    current_user.owns_project(params[:id])
+    unless current_user.owns_project(params[:id].to_i)
+      flash[:error] = "You do not own this project"
+      redirect_to project_path(params[:id].to_i)
+    else
+      true
+    end
   end
   
   def is_part_of_project
-    current_user.is_part_of_project(params[:id])
+    unless current_user.is_part_of_project(params[:id].to_i)
+      flash[:error] = "You are not part of this project"
+      redirect_to(projects_path)
+    end
   end
 end

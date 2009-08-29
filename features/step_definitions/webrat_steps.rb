@@ -7,7 +7,7 @@ Given /^I am on (.+)$/ do |page_name|
   visit path_to(page_name)
 end
 
-When /^I go to (.+)$/ do |page_name|
+When /^I go to (?!destroy)(.+)$/ do |page_name|
   visit path_to(page_name)
 end
 
@@ -158,9 +158,13 @@ Then /^show me the page$/ do
 end
 
 #These are my global steps
-When /^I am logged in as (\w+) with password (.+)$/ do |username, password|
+When /^I am logged in as (\w+)$/ do |username|
   visit login_url
   fill_in "Login", :with => username
-  fill_in "Password", :with => password
+  fill_in "Password", :with => "testing"
   click_button "Log In"
+end
+
+When /^I go to destroy (.+)$/ do |page_name|
+  visit path_to(page_name), :delete
 end

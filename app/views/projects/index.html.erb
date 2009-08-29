@@ -7,7 +7,7 @@
 
 <% @projects.each do |project| %>
   <tr>
-    <td><%=h project.owner.login %></td>
+    <td><%=h project.owner.name %></td>
     <td><%=h project.name %></td>
     <td><%= link_to 'Show', project %></td>
     <%= "<td id=\"project_#{project.id}_edit\">#{link_to 'Edit', edit_project_path(project)}</td>" if project.owner == current_user %>

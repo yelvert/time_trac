@@ -11,8 +11,18 @@ module NavigationHelpers
     when /the homepage/
       '/'
       
-    when /the list of projects/
-      projects_path
+    when /the list of (.+)/
+      eval("#{$1}_path")
+      
+    when /the project page for "([^\"]+)"/
+      project_path(Project.find_by_name($1))
+      
+    when /the edit project page for "([^\"]+)"/
+      edit_project_path(Project.find_by_name($1))
+      
+    when /the edit project page for "([^\"]+)"/
+      project_path(Project.find_by_name($1))
+      
     
     # Add more mappings here.
     # Here is a more fancy example:
