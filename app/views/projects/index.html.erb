@@ -10,8 +10,8 @@
     <td><%=h project.owner.login %></td>
     <td><%=h project.name %></td>
     <td><%= link_to 'Show', project %></td>
-    <%= "<td>#{link_to 'Edit', edit_project_path(project)}</td>" if current_user.is_part_of_project project.id %>
-    <%= "<td>#{link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete}</td>" if current_user.is_part_of_project project.id  %>
+    <%= "<td id=\"project_#{project.id}_edit\">#{link_to 'Edit', edit_project_path(project)}</td>" if project.owner == current_user %>
+    <%= "<td id=\"project_#{project.id}_destroy\">#{link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete}</td>" if project.owner == current_user  %>
   </tr>
 <% end %>
 </table>
