@@ -1,0 +1,2 @@
+page.replace_html 'start_stop', button_to_remote("Stop", :url => stop_project_time_path(@project_time.id))
+page.insert_html :top, 'project_times', "<tr id=\"project_time_#{@project_time.id}\"><td>#{@project_time.user.name}</td><td>#{@project_time.start_time}</td><td>Running...</td><td>&nbsp;</td></tr>"

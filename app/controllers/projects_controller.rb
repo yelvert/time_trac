@@ -86,6 +86,20 @@ class ProjectsController < ApplicationController
     end
   end
   
+  def start
+    @project_time = ProjectTime.new(:user_id => current_user.id, :project_id => params[:id], :start_time => DateTime.now)
+    @project_time.save
+    render :action => "start.rjs"
+  end
+  
+  def stop
+    @project_time = ProjectTime.find(params[:id])
+    @project_time.end_time = DateTime.now
+    @project_time.save
+    render :action => "stop.rjs"
+  end
+  
+protected
   def owns_project
     unless current_user.owns_project(params[:id].to_i)
       flash[:error] = "You do not own this project"

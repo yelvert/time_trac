@@ -28,6 +28,7 @@ class User < ActiveRecord::Base
 
   has_many :user_projects
   has_many :projects, :through => :user_projects
+  has_many :project_times
   
   def owned_projects
     Project.find_all_by_owner_id(self.id)

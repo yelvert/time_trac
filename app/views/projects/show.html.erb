@@ -8,6 +8,31 @@
   <%=h @project.name %>
 </p>
 
+<p id="start_stop">
+	<%= button_to_remote "Start", :url => start_project_time_path(@project.id) %>
+</p>
+
+<p>
+	<b>Times</b>
+	<table>
+		<tr>
+			<th>User</th>
+			<th>Starting Time</th>
+			<th>Ending Time</th>
+			<th>Elapsed Time</th>
+		</tr>
+		<tbody id="project_times">
+			<% ProjectTime.find_all_by_project_id(@project.id, :order => "start_time DESC").each do |pt| %>
+				<tr id="project_time_<%= pt.id %>">
+					<td><%= pt.user.name %></td>
+					<td><%= pt.start_time %></td>
+					<td><%= pt.end_time.nil? ? "Running..." : pt.end_time %></td>
+					<td><%= pt.elapsed_time %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</p>
 
 <%= "#{link_to 'Edit', edit_project_path(@project)} | " if current_user.owns_project(@project.id) %>
 <%= link_to 'Back', projects_path %>

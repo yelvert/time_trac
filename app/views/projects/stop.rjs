@@ -1,0 +1,2 @@
+page.replace_html 'start_stop', button_to_remote("Start", :url => start_project_time_path(@project_time.id))
+page.replace_html "project_time_#{@project_time.id}", "<td>#{@project_time.user.name}</td><td>#{@project_time.start_time}</td><td>#{@project_time.end_time}</td><td>#{@project_time.elapsed_time}</td>"
