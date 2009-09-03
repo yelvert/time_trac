@@ -16,6 +16,11 @@ class ProjectsController < ApplicationController
   # GET /projects/1.xml
   def show
     @project = Project.find(params[:id])
+    @last_running = @project.project_times.last_running(current_user)
+    logger.info @last_running.inspect
+    @last_running = @last_running.blank? ? nil : @last_running[0]
+    logger.info @last_running.inspect
+    logger.info (@last_running.nil?).inspect
 
     respond_to do |format|
       format.html # show.html.erb
@@ -87,7 +92,8 @@ class ProjectsController < ApplicationController
   end
   
   def start
-    @project_time = ProjectTime.new(:user_id => current_user.id, :project_id => params[:id], :start_time => DateTime.now)
+    @project = Project.find(params[:id])
+    @project_time = ProjectTime.new(:user_id => current_user.id, :project_id => @project.id, :start_time => DateTime.now)
     @project_time.save
     render :action => "start.rjs"
   end
@@ -95,6 +101,7 @@ class ProjectsController < ApplicationController
   def stop
     @project_time = ProjectTime.find(params[:id])
     @project_time.end_time = DateTime.now
+    @project_time.notes = params[:notes]
     @project_time.save
     render :action => "stop.rjs"
   end

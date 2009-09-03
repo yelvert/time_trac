@@ -9,8 +9,19 @@
 </p>
 
 <p id="start_stop">
-	<%= button_to_remote "Start", :url => start_project_time_path(@project.id) %>
+	<% unless @last_running.blank? %>
+		<%= button_to_remote "Stop", :url => stop_project_time_path(@last_running.id), :with => "$('notes').value" %>
+	<% else %>
+		<%= button_to_remote "Start", :url => start_project_time_path(@project.id) %>
+	<% end %>
 </p>
+<p id="notes_area" style="display:<%= @last_running.nil? ? "none" : "block" %>"><textarea id="notes"></textarea></p>
+<div id="project_time">
+	Current Time: <div id="current_session"><%= @last_running.blank? ? "00:00:00" : "<script type='text/javascript' charset='utf-8'>document.write((new Time).fromElapsed(#{DateTime.now.to_f.to_i - @last_running.start_time.to_datetime.to_f.to_i}).prettyString)</script>" %></div><br />
+	My Current Project Time: <div id="my_current_project_time">0:00:00</div>
+</div>
+<br />
+Total Project Time: <div id="total_project_time">00:00:00</div>
 
 <p>
 	<b>Times</b>
@@ -27,7 +38,11 @@
 					<td><%= pt.user.name %></td>
 					<td><%= pt.start_time %></td>
 					<td><%= pt.end_time.nil? ? "Running..." : pt.end_time %></td>
-					<td><%= pt.elapsed_time %></td>
+					<td>
+						<script type="text/javascript" charset="utf-8">
+							document.write((new Time).fromElapsed(<%= pt.elapsed_time %>).prettyString)
+						</script>
+					</td>
 				</tr>
 			<% end %>
 		</tbody>
@@ -36,3 +51,8 @@
 
 <%= "#{link_to 'Edit', edit_project_path(@project)} | " if current_user.owns_project(@project.id) %>
 <%= link_to 'Back', projects_path %>
+
+<script type="text/javascript" charset="utf-8">
+	$('my_current_project_time').update((new Time).fromElapsed(<%= @project.total_time_for_user(current_user) %>).prettyString);
+	$('total_project_time').update((new Time).fromElapsed(<%= @project.total_time %>).prettyString);
+</script>

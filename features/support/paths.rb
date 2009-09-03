@@ -20,7 +20,7 @@ module NavigationHelpers
     when /the edit project page for "([^\"]+)"/
       edit_project_path(Project.find_by_name($1))
       
-    when /the edit project page for "([^\"]+)"/
+    when /the show project page for "([^\"]+)"/
       project_path(Project.find_by_name($1))
       
     
