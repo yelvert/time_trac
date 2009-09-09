@@ -1,8 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
+  #map.named_projects '/projects/:owner/:name', :controller => "projects", :action => "show"
+  
   map.resources :projects, :member => [:start => :post, :stop => :post]
   map.start_project_time '/projects/:id/start', :controller => "projects", :action => "start"
   map.stop_project_time '/projects/:id/stop', :controller => "projects", :action => "stop"
-
+  
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.login '/login', :controller => 'sessions', :action => 'new'
   map.register '/register', :controller => 'users', :action => 'create'

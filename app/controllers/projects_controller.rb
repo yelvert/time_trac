@@ -15,17 +15,25 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.xml
   def show
-    @project = Project.find(params[:id])
-    @last_running = @project.project_times.last_running(current_user)
-    logger.info @last_running.inspect
-    @last_running = @last_running.blank? ? nil : @last_running[0]
-    logger.info @last_running.inspect
-    logger.info (@last_running.nil?).inspect
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @project }
-    end
+    #if params[:owner] && params[:name]
+    #  @project = Project.find_by_owner_id_and_name(User.find_by_login(params[:owner]), params[:name])
+    #else
+      @project = Project.find(params[:id])
+    #end
+    #if @project.nil?
+    #  respond_to do |format|
+    #    flash[:error] = "This project does not exist."
+    #    format.html { redirect_to projects_path }
+    #    format.xml { redirect_to projects_path }
+    #  end
+    #else
+      @last_running = @project.project_times.last_running(current_user)
+      @last_running = @last_running.blank? ? nil : @last_running[0]
+      respond_to do |format|
+        format.html # show.html.erb
+        format.xml  { render :xml => @project }
+      end
+    #end
   end
 
   # GET /projects/new
