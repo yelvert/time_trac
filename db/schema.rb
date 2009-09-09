@@ -9,7 +9,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090903051854) do
+ActiveRecord::Schema.define(:version => 20090909174019) do
+
+  create_table "project_invitations", :force => true do |t|
+    t.integer  "project_id"
+    t.string   "invite_code"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "project_times", :force => true do |t|
     t.integer  "project_id"

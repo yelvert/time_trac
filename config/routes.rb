@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :project_invitations
+
   #map.named_projects '/projects/:owner/:name', :controller => "projects", :action => "show"
   
   map.resources :projects, :member => [:start => :post, :stop => :post]

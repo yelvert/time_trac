@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  project_id: 1
+  invite_code: MyString
+  email: MyString
+
+two:
+  project_id: 1
+  invite_code: MyString
+  email: MyString
