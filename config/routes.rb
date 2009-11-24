@@ -1,22 +1,4 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :project_invitations
-  
-  map.add_manual_time_to_project '/projects/:id/add_time', :controller => "projects", :action => "add_time"
-  
-  #map.named_projects '/projects/:owner/:name', :controller => "projects", :action => "show"
-  
-  map.resources :projects, :member => [:start => :post, :stop => :post, :add_time => :post]
-  map.start_project_time '/projects/:id/start', :controller => "projects", :action => "start"
-  map.stop_project_time '/projects/:id/stop', :controller => "projects", :action => "stop"
-  
-  map.logout '/logout', :controller => 'sessions', :action => 'destroy'
-  map.login '/login', :controller => 'sessions', :action => 'new'
-  map.register '/register', :controller => 'users', :action => 'create'
-  map.signup '/signup', :controller => 'users', :action => 'new'
-  map.resources :users
-
-  map.resource :session
-
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
@@ -50,7 +32,7 @@ ActionController::Routing::Routes.draw do |map|
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
   # map.root :controller => "welcome"
-  map.root :controller => "projects"
+
   # See how all your routes lay out with "rake routes"
 
   # Install the default routes as the lowest priority.
