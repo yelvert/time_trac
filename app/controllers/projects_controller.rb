@@ -114,6 +114,14 @@ class ProjectsController < ApplicationController
     render :action => "stop.rjs"
   end
   
+  def add_time
+    @project = Project.find(params[:id])
+    params[:project_time].merge! :user_id => current_user.id, :project_id => @project.id
+    @project_time = ProjectTime.new(params[:project_time])
+    @project_time.save
+    render :action => "add_time.rjs"
+  end
+  
 protected
   def owns_project
     unless current_user.owns_project(params[:id].to_i)

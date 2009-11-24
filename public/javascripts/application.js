@@ -11,8 +11,12 @@ function padInt(num, numZeros) {
 Timer = function() {
 }
 
-Timer.prototype.startTimer = function(intervalCode) {
-	this.startTime = Math.round(new Date().getTime()/1000.0);
+Timer.prototype.startTimer = function(intervalCode, startTime) {
+	if (startTime) {
+		this.startTime = startTime;
+	} else {
+		this.startTime = Math.round(new Date().getTime()/1000.0);
+	}
 	this.intervalId = setInterval(""+intervalCode+"", 1000)
 	return this
 }

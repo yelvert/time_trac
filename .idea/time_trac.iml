@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="RUBY_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="RailsFacetType" name="Ruby on Rails">
+      <configuration>
+        <RAILS_FACET_CONFIG_ID NAME="RAILS_FACET_SUPPORT_REMOVED" VALUE="false" />
+        <RAILS_FACET_CONFIG_ID NAME="RAILS_TESTS_SOURCES_PATCHED" VALUE="true" />
+        <RAILS_FACET_CONFIG_ID NAME="RAILS_FACET_APPLICATION_ROOT" VALUE="$MODULE_DIR$" />
+      </configuration>
+    </facet>
+  </component>
+  <component name="GemRequirementsHolder" version="2">
+    <requirement>
+      <requirement>
+        <dependency name="cucumber" version="0.2.2" bound="GREATER_OR_EQUAL" />
+      </requirement>
+      <source from="config/environments/test.rb" />
+    </requirement>
+    <requirement>
+      <requirement>
+        <dependency name="cucumber" version="0.3.98" bound="GREATER_OR_EQUAL" />
+      </requirement>
+      <source from="config/environments/cucumber.rb" />
+    </requirement>
+    <requirement>
+      <requirement>
+        <dependency name="rails" version="0" bound="GREATER_OR_EQUAL" />
+      </requirement>
+      <source from="config/boot.rb" />
+    </requirement>
+    <requirement>
+      <requirement>
+        <dependency name="rspec" version="1.2.2" bound="GREATER_OR_EQUAL" />
+      </requirement>
+      <source from="config/environments/test.rb" />
+    </requirement>
+    <requirement>
+      <requirement>
+        <dependency name="rspec" version="1.2.6" bound="GREATER_OR_EQUAL" />
+      </requirement>
+      <source from="config/environments/cucumber.rb" />
+    </requirement>
+    <requirement>
+      <requirement>
+        <dependency name="rspec-rails" version="1.2.2" bound="GREATER_OR_EQUAL" />
+      </requirement>
+      <source from="config/environments/test.rb" />
+    </requirement>
+    <requirement>
+      <requirement>
+        <dependency name="rspec-rails" version="1.2.6" bound="GREATER_OR_EQUAL" />
+      </requirement>
+      <source from="config/environments/cucumber.rb" />
+    </requirement>
+    <requirement>
+      <requirement>
+        <dependency name="sqlite3-ruby" version="0" bound="GREATER_OR_EQUAL" />
+      </requirement>
+      <source from="config/database.yml" />
+    </requirement>
+    <requirement>
+      <requirement>
+        <dependency name="webrat" version="0.5.0" bound="GREATER_OR_EQUAL" />
+      </requirement>
+      <source from="config/environments/cucumber.rb" />
+    </requirement>
+    <requirement>
+      <requirement>
+        <dependency name="webrat" version="0.4.3" bound="GREATER_OR_EQUAL" />
+      </requirement>
+      <source from="config/environments/test.rb" />
+    </requirement>
+  </component>
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/test" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/tmp" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="[gem] cucumber (v0.3.98, /Library/Ruby/Gems/1.8/gems/cucumber-0.3.98)" level="application" />
+    <orderEntry type="library" name="[gem] rake (v0.8.3, /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/rake-0.8.3)" level="application" />
+    <orderEntry type="library" name="[gem] actionmailer (v2.3.3, /Library/Ruby/Gems/1.8/gems/actionmailer-2.3.3)" level="application" />
+    <orderEntry type="library" name="[gem] actionpack (v2.3.3, /Library/Ruby/Gems/1.8/gems/actionpack-2.3.3)" level="application" />
+    <orderEntry type="library" name="[gem] activesupport (v2.3.3, /Library/Ruby/Gems/1.8/gems/activesupport-2.3.3)" level="application" />
+    <orderEntry type="library" name="[gem] rack (v1.0.0, /Library/Ruby/Gems/1.8/gems/rack-1.0.0)" level="application" />
+    <orderEntry type="library" name="[gem] activerecord (v2.3.3, /Library/Ruby/Gems/1.8/gems/activerecord-2.3.3)" level="application" />
+    <orderEntry type="library" name="[gem] activeresource (v2.3.3, /Library/Ruby/Gems/1.8/gems/activeresource-2.3.3)" level="application" />
+    <orderEntry type="library" name="[gem] rails (v2.3.3, /Library/Ruby/Gems/1.8/gems/rails-2.3.3)" level="application" />
+    <orderEntry type="library" name="[gem] sqlite3-ruby (v1.2.4, /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/sqlite3-ruby-1.2.4)" level="application" />
+    <orderEntry type="library" name="[gem] diff-lcs (v1.1.2, /Library/Ruby/Gems/1.8/gems/diff-lcs-1.1.2)" level="application" />
+    <orderEntry type="library" name="[gem] polyglot (v0.2.8, /Library/Ruby/Gems/1.8/gems/polyglot-0.2.8)" level="application" />
+    <orderEntry type="library" name="[gem] webrat (v0.5.3, /Library/Ruby/Gems/1.8/gems/webrat-0.5.3)" level="application" />
+    <orderEntry type="library" name="[gem] treetop (v1.3.0, /Library/Ruby/Gems/1.8/gems/treetop-1.3.0)" level="application" />
+    <orderEntry type="library" name="[gem] builder (v2.1.2, /Library/Ruby/Gems/1.8/gems/builder-2.1.2)" level="application" />
+    <orderEntry type="library" name="[gem] rspec-rails (v1.2.7.1, /Library/Ruby/Gems/1.8/gems/rspec-rails-1.2.7.1)" level="application" />
+    <orderEntry type="library" name="[gem] nokogiri (v1.3.3, /Library/Ruby/Gems/1.8/gems/nokogiri-1.3.3)" level="application" />
+    <orderEntry type="library" name="[gem] term-ansicolor (v1.0.4, /Library/Ruby/Gems/1.8/gems/term-ansicolor-1.0.4)" level="application" />
+    <orderEntry type="library" name="[gem] rspec (v1.2.8, /Users/yelvert/.gem/ruby/1.8/gems/rspec-1.2.8)" level="application" />
+  </component>
+</module>
+

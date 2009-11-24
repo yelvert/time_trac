@@ -1,6 +1,6 @@
 page.replace_html 'start_stop', button_to_remote("Start", :url => start_project_time_path(@project_time.project_id))
 page.replace_html "project_time_#{@project_time.id}", "<td>#{@project_time.user.name}</td><td>#{@project_time.start_time}</td><td>#{@project_time.end_time}</td><td id='elapsed_#{@project_time.id}'></td>"
-page.replace_html "current_session", "0:00:00"
+page.replace_html "current_session", "00:00:00"
 page << "$('elapsed_#{@project_time.id}').update((new Time).fromElapsed(#{@project_time.elapsed_time}).prettyString)"
 page << "$('notes').value = ''"
 page << "$('notes_area').hide()"

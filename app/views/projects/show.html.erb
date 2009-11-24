@@ -15,13 +15,36 @@
 		<%= button_to_remote "Start", :url => start_project_time_path(@project.id) %>
 	<% end %>
 </p>
-<p id="notes_area" style="display:<%= @last_running.nil? ? "none" : "block" %>"><textarea id="notes"></textarea></p>
+<p id="notes_area" style="display:<%= @last_running.nil? ? "none" : "block" %>"><textarea id="notes" rows="3"></textarea></p>
 <div id="project_time">
-	Current Time: <div id="current_session"><%= @last_running.blank? ? "00:00:00" : "<script type='text/javascript' charset='utf-8'>document.write((new Time).fromElapsed(#{DateTime.now.to_f.to_i - @last_running.start_time.to_datetime.to_f.to_i}).prettyString)</script>" %></div><br />
+	Current Time: <div id="current_session"><%= @last_running.nil? ? "00:00:00" : "<script type=\"text/javascript\" charset=\"utf-8\">document.write((new Time).fromElapsed(#{@last_running.elapsed_time}).prettyString);</script>" %></div><br />
 	My Current Project Time: <div id="my_current_project_time">0:00:00</div>
 </div>
 <br />
 Total Project Time: <div id="total_project_time">00:00:00</div>
+<%= "<script type='text/javascript' charset='utf-8'>
+	timer = new Timer;
+	timer.startTimer(\"$('current_session').update(timer.currentPrettyString());$('total_project_time').update((new Time).fromElapsed(#{@project.total_time - @last_running.elapsed_time}+timer.currentElapsed()).prettyString);$('my_current_project_time').update((new Time).fromElapsed(#{@project.total_time_for_user(current_user) - @last_running.elapsed_time}+timer.currentElapsed()).prettyString)\", #{@last_running.start_time.to_datetime.to_f.to_i})
+</script>" unless @last_running.nil? %>
+<br />
+<%= button_to_function "Add a Time Manually", "$('manual_time_add').show()" %>
+<div id="manual_time_add" style="display:none;">
+	<% remote_form_for ProjectTime.new(:project_id => @project.id), :url => add_manual_time_to_project_path(@project.id) do |f| %>
+		<p>
+			<%= f.label :start_time %>
+			<%= f.datetime_select :start_time, :date_separator => '/', :time_separator => ':', :datetime_separator => ',' %>
+		</p>
+		<p>
+			<%= f.label :end_time %>
+			<%= f.datetime_select :end_time, :date_separator => '/', :time_separator => ':', :datetime_separator => ',' %>
+		</p>
+		<p>
+			<%= f.label :notes %>
+			<%= f.text_area :notes, :rows => 3 %>
+		</p>
+		<%= f.submit "Submit", :disable_with => 'Adding...' %>
+	<% end %>
+</div>
 
 <p>
 	<b>Times</b>

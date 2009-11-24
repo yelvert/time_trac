@@ -1,9 +1,11 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :project_invitations
-
+  
+  map.add_manual_time_to_project '/projects/:id/add_time', :controller => "projects", :action => "add_time"
+  
   #map.named_projects '/projects/:owner/:name', :controller => "projects", :action => "show"
   
-  map.resources :projects, :member => [:start => :post, :stop => :post]
+  map.resources :projects, :member => [:start => :post, :stop => :post, :add_time => :post]
   map.start_project_time '/projects/:id/start', :controller => "projects", :action => "start"
   map.stop_project_time '/projects/:id/stop', :controller => "projects", :action => "stop"
   
