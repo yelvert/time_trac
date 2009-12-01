@@ -15,8 +15,8 @@ module NavigationHelpers
     when /the new user page/
       '/users/new'
       
-    when /"(.+)"'s user page/
-      "/users/#{User.find_by_login($1).id}"
+    when /"([^\"]+)"'s user page/
+      "/users/#{User.find_by_login($1.downcase).id}"
     
     # Add more mappings here.
     # Here is a more fancy example:

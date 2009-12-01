@@ -438,3 +438,666 @@ Rendering template within layouts/users
 Rendering users/show
 Completed in 3ms (View: 2, DB: 0) | 200 OK [http://www.example.com/users/2]
   [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'John') LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20091127000634)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "name" varchar(255), "crypted_password" varchar(255), "password_salt" varchar(255), "persistence_token" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091127000634')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'john') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'john@timetrac.com') LIMIT 1[0m
+REQUESTING PAGE: GET /users/new with {} and HTTP headers {}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-30 22:14:34) [GET]
+Rendering users/new
+Completed in 5ms (View: 3, DB: 0) | 200 OK [http://www.example.com/users/new]
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = '"john"') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = '"john"@timetrac.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'john') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'john@timetrac.com') LIMIT 1[0m
+REQUESTING PAGE: GET /users/new with {} and HTTP headers {}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-30 22:16:32) [GET]
+Rendering users/new
+ERROR: compiling _run_erb_app47views47users47new46html46erb RAISED compile error
+/Users/yelvert/projects/time_trac/app/views/users/new.html.erb:12: syntax error, unexpected ':', expecting ')'
+....concat(( label_tag :password: ).to_s); @output_buffer.conca...
+                              ^
+Function body:           def _run_erb_app47views47users47new46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<h1>Sign up as a new user</h1>\n"
+;  @user.password = @user.password_confirmation = nil ; @output_buffer.concat "\n\n"
+
+; @output_buffer.concat(( error_messages_for :user ).to_s); @output_buffer.concat "\n"
+;  form_for :user, :url => users_path do |f| 
+@output_buffer.concat "<p>"; @output_buffer.concat(( label_tag :login ).to_s); @output_buffer.concat "<br/>\n"
+; @output_buffer.concat(( f.text_field :login ).to_s); @output_buffer.concat "</p>\n\n<p>"
+
+; @output_buffer.concat(( label_tag :email ).to_s); @output_buffer.concat "<br/>\n"
+; @output_buffer.concat(( f.text_field :email ).to_s); @output_buffer.concat "</p>\n\n<p>"
+
+; @output_buffer.concat(( label_tag :password: ).to_s); @output_buffer.concat "<br/>\n"
+; @output_buffer.concat(( f.password_field :password ).to_s); @output_buffer.concat "</p>\n\n<p>"
+
+; @output_buffer.concat(( label_tag :password_confirmation ).to_s); @output_buffer.concat "<br/>\n"
+; @output_buffer.concat(( f.password_field :password_confirmation ).to_s); @output_buffer.concat "</p>\n\n<p>"
+
+; @output_buffer.concat(( submit_tag 'Sign up' ).to_s); @output_buffer.concat "</p>\n"
+;  end 
+@output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/yelvert/projects/time_trac/app/views/users/new.html.erb:23:in `compile!'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_view/renderable.rb:61:in `compile'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_view/renderable.rb:28:in `render_without_template_tracking'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_view/test_case.rb:20:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_view/template.rb:199:in `render_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_view/base.rb:260:in `render_without_mock_proxy'
+/Library/Ruby/Gems/1.8/gems/rspec-rails-1.2.9/lib/spec/rails/extensions/action_view/base.rb:27:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:1250:in `render_for_file'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:945:in `render_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:1326:in `default_render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:1332:in `perform_action_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/filters.rb:617:in `call_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/flash.rb:146:in `perform_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:532:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:532:in `process_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/filters.rb:606:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:391:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:386:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/routing/route_set.rb:437:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:87:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:121:in `_call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:9:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:28:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/params_parser.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/session/cookie_store.rb:93:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/failsafe.rb:26:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `synchronize'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:106:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.1/lib/rack/lint.rb:47:in `_call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.1/lib/rack/lint.rb:35:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/integration.rb:313:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/integration.rb:196:in `get'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/integration.rb:491:in `__send__'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.4/lib/action_controller/integration.rb:491:in `get'
+/Library/Ruby/Gems/1.8/gems/webrat-0.5.3/lib/webrat/rails.rb:68:in `send'
+/Library/Ruby/Gems/1.8/gems/webrat-0.5.3/lib/webrat/rails.rb:68:in `do_request'
+/Library/Ruby/Gems/1.8/gems/webrat-0.5.3/lib/webrat/rails.rb:37:in `get'
+(__FORWARDABLE__):3:in `__send__'
+(__FORWARDABLE__):3:in `get'
+/Library/Ruby/Gems/1.8/gems/webrat-0.5.3/lib/webrat/core/session.rb:280:in `send'
+/Library/Ruby/Gems/1.8/gems/webrat-0.5.3/lib/webrat/core/session.rb:280:in `process_request'
+/Library/Ruby/Gems/1.8/gems/webrat-0.5.3/lib/webrat/core/session.rb:122:in `request_page'
+/Library/Ruby/Gems/1.8/gems/webrat-0.5.3/lib/webrat/core/session.rb:220:in `visit'
+(eval):2:in `visit'
+./features/step_definitions/webrat_steps.rb:16
+/Library/Ruby/Gems/1.8/gems/cucumber-0.4.4/bin/../lib/cucumber/core_ext/instance_exec.rb:48:in `instance_exec'
+/Library/Ruby/Gems/1.8/gems/cucumber-0.4.4/bin/../lib/cucumber/core_ext/instance_exec.rb:48:in `cucumber_instance_exec'
+/Library/Ruby/Gems/1.8/gems/cucumber-0.4.4/bin/../lib/cucumber/core_ext/instance_exec.rb:69:in `cucumber_run_with_backtrace_filtering'
+/Library/Ruby/Gems/1.8/gems/cucumber-0.4.4/bin/../lib/cucumber/core_ext/instance_exec.rb:36:in `cucumber_instance_exec'
+/Library/Ruby/Gems/1.8/gems/cucumber-0.4.4/bin/../lib/cucumber/rb_support/rb_step_definition.rb:55:in `invoke'
+/Library/Ruby/Gems/1.8/gems/cucumber-0.4.4/bin/../lib/cucumber/step_match.rb:24:in `invoke'
+/Library/Ruby/Gems/1.8/gems/cucumber-0.4.4/bin/../lib/cucumber/ast/step_invocation.rb:59:in `invoke'
+/Library/Ruby/Gems/1.8/gems/cucumber-0.4.4/bin/../lib/cucumber/ast/step_invocation.rb:38:in `accept'
+/Library/Ruby/Gems/1.8/gems/cucumber-0.4.4/bin/../lib/cucumber/ast/tree_walker.rb:115:in `visit_step'
+/Library/Ruby/Gems/1.8/gems/cucumber-0.4.4/bin/../lib/cucumber/ast/tree_walker.rb:180:in `broadcast'
+/Library/Ruby/Gems/1.8/gems/cucumber-0.4.4/bin/../lib/cucumber/ast/tree_walker.rb:114:in `visit_step'
+/Library/Ruby/Gems/1.8/gems/cucumber-0.4.4/bin/../lib/cucumber/ast/step_collection.rb:15:in `accept'
+/Library/Ruby/Gems/1.8/gems/cucumber-0.4.4/bin/../lib/cucumber/ast/step_collection.rb:14:in `each'
+/Library/Ruby/Gems/1.8/gems/cucumber-0.4.4/bin/../lib/cucumber/ast/step_collection.rb:14:in `accept'
+/Library/Ruby/Gems/1.8/gems/cucumber-0.4.4/bin/../lib/cucumber/ast/tree_walker.rb:109:in `visit_steps'
+/Library/Ruby/Gems/1.8/gems/cucumber-0.4.4/bin/../lib/cucumber/ast/tree_walker.rb:180:in `broadcast'
+/Library/Ruby/Gems/1.8/gems/cucumber-0.4.4/bin/../lib/cucumber/ast/tree_walker.rb:108:in `visit_steps'
+/Library/Ruby/Gems/1.8/gems/cucumber-0.4.4/bin/../lib/cucumber/ast/scenario.rb:47:in `accept'
+/Library/Ruby/Gems/1.8/gems/cucumber-0.4.4/bin/../lib/cucumber/step_mother.rb:279:in `before_and_after'
+/Library/Ruby/Gems/1.8/gems/cucumber-0.4.4/bin/../lib/cucumber/ast/scenario.rb:45:in `accept'
+/Library/Ruby/Gems/1.8/gems/cucumber-0.4.4/bin/../lib/cucumber/ast/scenario.rb:100:in `with_visitor'
+/Library/Ruby/Gems/1.8/gems/cucumber-0.4.4/bin/../lib/cucumber/ast/scenario.rb:39:in `accept'
+/Library/Ruby/Gems/1.8/gems/cucumber-0.4.4/bin/../lib/cucumber/ast/tree_walker.rb:51:in `visit_feature_element'
+/Library/Ruby/Gems/1.8/gems/cucumber-0.4.4/bin/../lib/cucumber/ast/tree_walker.rb:180:in `broadcast'
+/Library/Ruby/Gems/1.8/gems/cucumber-0.4.4/bin/../lib/cucumber/ast/tree_walker.rb:50:in `visit_feature_element'
+/Library/Ruby/Gems/1.8/gems/cucumber-0.4.4/bin/../lib/cucumber/ast/feature.rb:25:in `accept'
+/Library/Ruby/Gems/1.8/gems/cucumber-0.4.4/bin/../lib/cucumber/ast/feature.rb:24:in `each'
+/Library/Ruby/Gems/1.8/gems/cucumber-0.4.4/bin/../lib/cucumber/ast/feature.rb:24:in `accept'
+/Library/Ruby/Gems/1.8/gems/cucumber-0.4.4/bin/../lib/cucumber/ast/tree_walker.rb:20:in `visit_feature'
+/Library/Ruby/Gems/1.8/gems/cucumber-0.4.4/bin/../lib/cucumber/ast/tree_walker.rb:180:in `broadcast'
+/Library/Ruby/Gems/1.8/gems/cucumber-0.4.4/bin/../lib/cucumber/ast/tree_walker.rb:19:in `visit_feature'
+/Library/Ruby/Gems/1.8/gems/cucumber-0.4.4/bin/../lib/cucumber/ast/features.rb:29:in `accept'
+/Library/Ruby/Gems/1.8/gems/cucumber-0.4.4/bin/../lib/cucumber/ast/features.rb:17:in `each'
+/Library/Ruby/Gems/1.8/gems/cucumber-0.4.4/bin/../lib/cucumber/ast/features.rb:17:in `each'
+/Library/Ruby/Gems/1.8/gems/cucumber-0.4.4/bin/../lib/cucumber/ast/features.rb:28:in `accept'
+/Library/Ruby/Gems/1.8/gems/cucumber-0.4.4/bin/../lib/cucumber/ast/tree_walker.rb:14:in `visit_features'
+/Library/Ruby/Gems/1.8/gems/cucumber-0.4.4/bin/../lib/cucumber/ast/tree_walker.rb:180:in `broadcast'
+/Library/Ruby/Gems/1.8/gems/cucumber-0.4.4/bin/../lib/cucumber/ast/tree_walker.rb:13:in `visit_features'
+/Library/Ruby/Gems/1.8/gems/cucumber-0.4.4/bin/../lib/cucumber/cli/main.rb:56:in `execute!'
+/Library/Ruby/Gems/1.8/gems/cucumber-0.4.4/bin/../lib/cucumber/cli/main.rb:24:in `execute'
+/Library/Ruby/Gems/1.8/gems/cucumber-0.4.4/bin/cucumber:8
+
+
+Processing ApplicationController#new (for 127.0.0.1 at 2009-11-30 22:16:32) [GET]
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = '"john"') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = '"john"@timetrac.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'john') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'john@timetrac.com') LIMIT 1[0m
+REQUESTING PAGE: GET /users/new with {} and HTTP headers {}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-30 22:17:38) [GET]
+Rendering users/new
+Completed in 5ms (View: 3, DB: 0) | 200 OK [http://www.example.com/users/new]
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = '"john"') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = '"john"@timetrac.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'john') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'john@timetrac.com') LIMIT 1[0m
+REQUESTING PAGE: GET /users/new with {} and HTTP headers {}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-30 22:21:41) [GET]
+Rendering users/new
+Completed in 5ms (View: 3, DB: 0) | 200 OK [http://www.example.com/users/new]
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = '"john"') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = '"john"@timetrac.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'john') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'john@timetrac.com') LIMIT 1[0m
+REQUESTING PAGE: GET /users/new with {} and HTTP headers {}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-30 22:24:06) [GET]
+Rendering users/new
+Completed in 5ms (View: 3, DB: 0) | 200 OK [http://www.example.com/users/new]
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = '"john"') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = '"john"@timetrac.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'john') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'john@timetrac.com') LIMIT 1[0m
+REQUESTING PAGE: GET /users/new with {} and HTTP headers {}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-30 22:33:41) [GET]
+Rendering users/new
+Completed in 5ms (View: 3, DB: 0) | 200 OK [http://www.example.com/users/new]
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = '"john"') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = '"john"@timetrac.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'john') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'john@timetrac.com') LIMIT 1[0m
+REQUESTING PAGE: GET /users/new with {} and HTTP headers {}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-30 22:34:16) [GET]
+Rendering users/new
+Completed in 5ms (View: 4, DB: 0) | 200 OK [http://www.example.com/users/new]
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = '"john"') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = '"john"@timetrac.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'john') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'john@timetrac.com') LIMIT 1[0m
+REQUESTING PAGE: GET /users/new with {} and HTTP headers {}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-30 22:36:46) [GET]
+Rendering users/new
+Completed in 6ms (View: 4, DB: 0) | 200 OK [http://www.example.com/users/new]
+REQUESTING PAGE: POST /users with {"commit"=>"Sign up", "user"=>{"name"=>"John Doe", "password_confirmation"=>"password", "password"=>"password", "login"=>"John", "email"=>"john@test.com"}} and HTTP headers {"HTTP_REFERER"=>"/users/new"}
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-11-30 22:36:46) [POST]
+  Parameters: {"commit"=>"Sign up", "user"=>{"name"=>"John Doe", "password_confirmation"=>"password", "login"=>"John", "password"=>"password", "email"=>"john@test.com"}}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'john') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'john@test.com') LIMIT 1[0m
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2009-11-30 22:36:46) [POST]
+  Parameters: {"commit"=>"Sign up", "user"=>{"name"=>"John Doe", "password_confirmation"=>"password", "login"=>"John", "password"=>"password", "email"=>"john@test.com"}}
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = '"john"') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = '"john"@timetrac.com') LIMIT 1[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20091127000634)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (1.4ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20091127000634)
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "name" varchar(255), "crypted_password" varchar(255), "password_salt" varchar(255), "persistence_token" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091127000634')[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'john') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'john@timetrac.com') LIMIT 1[0m
+REQUESTING PAGE: GET /users/new with {} and HTTP headers {}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-30 22:56:22) [GET]
+Rendering users/new
+Completed in 6ms (View: 4, DB: 0) | 200 OK [http://www.example.com/users/new]
+REQUESTING PAGE: POST /users with {"commit"=>"Sign up", "user"=>{"name"=>"John Doe", "password_confirmation"=>"password", "password"=>"password", "login"=>"John", "email"=>"john@test.com"}} and HTTP headers {"HTTP_REFERER"=>"/users/new"}
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-11-30 22:56:22) [POST]
+  Parameters: {"commit"=>"Sign up", "user"=>{"name"=>"John Doe", "password_confirmation"=>"password", "login"=>"John", "password"=>"password", "email"=>"john@test.com"}}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'john') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'john@test.com') LIMIT 1[0m
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2009-11-30 22:56:22) [POST]
+  Parameters: {"commit"=>"Sign up", "user"=>{"name"=>"John Doe", "password_confirmation"=>"password", "login"=>"John", "password"=>"password", "email"=>"john@test.com"}}
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = '"john"') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = '"john"@timetrac.com') LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (1.9ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20091201045722)
+  [4;36;1mSQL (0.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(40), "name" varchar(100) DEFAULT '', "email" varchar(100), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(40), "remember_token_expires_at" datetime) [0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCREATE UNIQUE INDEX "index_users_on_login" ON "users" ("login")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091201045722')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_info('index_users_on_login')[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'john') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'john@timetrac.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.3ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "login", "email") VALUES('John', '55cab7aa88bdffd362582588697b8e3252860a37', '2009-12-01 04:58:36', 'e19171aff5976282ddb0f1ecca716e83ed93d88b', NULL, '2009-12-01 04:58:36', NULL, 'john', 'john@timetrac.com')[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'John') LIMIT 1[0m
+REQUESTING PAGE: GET /users/new with {} and HTTP headers {}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-30 22:58:36) [GET]
+Rendering users/new
+Completed in 6ms (View: 5, DB: 1) | 200 OK [http://www.example.com/users/new]
+REQUESTING PAGE: POST /users with {"commit"=>"Sign up", "user"=>{"name"=>"John Doe", "password_confirmation"=>"password", "password"=>"password", "login"=>"John", "email"=>"john@test.com"}} and HTTP headers {"HTTP_REFERER"=>"/users/new"}
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-11-30 22:58:36) [POST]
+  Parameters: {"commit"=>"Sign up", "user"=>{"name"=>"John Doe", "password_confirmation"=>"password", "login"=>"John", "password"=>"password", "email"=>"john@test.com"}}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'john') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'john@test.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "login", "email") VALUES('John Doe', 'f8ca31890efc441f28b7b613fd3304bba391d1a7', '2009-12-01 04:58:36', 'c54e4063f08aeddf76af33896da56c60f0128781', NULL, '2009-12-01 04:58:36', NULL, 'john', 'john@test.com')[0m
+Redirected to http://www.example.com/
+Completed in 8ms (DB: 1) | 302 Found [http://www.example.com/users]
+REQUESTING PAGE: GET http://www.example.com/ with {} and HTTP headers {"HTTP_REFERER"=>"/users"}
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-11-30 22:58:36) [GET]
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = '"john"') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = '"john"@timetrac.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'john') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'john@timetrac.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.3ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "login", "email") VALUES('John', '76d01bcef23a80ccbe897b4831f5b8c8c53986f9', '2009-12-01 05:00:51', '5fae0d16aeef44d6138e288e6c3add3c34be2a20', NULL, '2009-12-01 05:00:51', NULL, 'john', 'john@timetrac.com')[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'John') LIMIT 1[0m
+REQUESTING PAGE: GET /users/new with {} and HTTP headers {}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-30 23:00:51) [GET]
+Rendering users/new
+Completed in 6ms (View: 4, DB: 1) | 200 OK [http://www.example.com/users/new]
+REQUESTING PAGE: POST /users with {"commit"=>"Sign up", "user"=>{"name"=>"John Doe", "password_confirmation"=>"password", "password"=>"password", "login"=>"John", "email"=>"john@test.com"}} and HTTP headers {"HTTP_REFERER"=>"/users/new"}
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-11-30 23:00:51) [POST]
+  Parameters: {"commit"=>"Sign up", "user"=>{"name"=>"John Doe", "password_confirmation"=>"password", "login"=>"John", "password"=>"password", "email"=>"john@test.com"}}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'john') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'john@test.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.3ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "login", "email") VALUES('John Doe', 'c3e9b5d6c9f2b878199b7ea07b598a8357d8c9c2', '2009-12-01 05:00:51', '989736cf4878d95a0aa966ae05757ca3d21e2a3c', NULL, '2009-12-01 05:00:51', NULL, 'john', 'john@test.com')[0m
+Redirected to http://www.example.com/
+Completed in 7ms (DB: 1) | 302 Found [http://www.example.com/users]
+REQUESTING PAGE: GET http://www.example.com/ with {} and HTTP headers {"HTTP_REFERER"=>"/users"}
+
+
+Processing HomepageController#index (for 127.0.0.1 at 2009-11-30 23:00:51) [GET]
+Rendering homepage/index
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://www.example.com/]
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'John') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = '"john"') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = '"john"@timetrac.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'john') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'john@timetrac.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.3ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "login", "email") VALUES('John', 'b92a83738b05c5c6c2a5f202af0add4518bf35da', '2009-12-01 05:04:22', '71723a35e88a30cf88c07e4707ed17ae14527aab', NULL, '2009-12-01 05:04:22', NULL, 'john', 'john@timetrac.com')[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'John') LIMIT 1[0m
+REQUESTING PAGE: GET /users/new with {} and HTTP headers {}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-30 23:04:22) [GET]
+Rendering users/new
+Completed in 6ms (View: 4, DB: 1) | 200 OK [http://www.example.com/users/new]
+REQUESTING PAGE: POST /users with {"commit"=>"Sign up", "user"=>{"name"=>"John Doe", "password_confirmation"=>"password", "password"=>"password", "login"=>"John", "email"=>"john@test.com"}} and HTTP headers {"HTTP_REFERER"=>"/users/new"}
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-11-30 23:04:22) [POST]
+  Parameters: {"commit"=>"Sign up", "user"=>{"name"=>"John Doe", "password_confirmation"=>"password", "login"=>"John", "password"=>"password", "email"=>"john@test.com"}}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'john') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'john@test.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "login", "email") VALUES('John Doe', 'b34f5a7c15697aba8305dca0f83164226d717e06', '2009-12-01 05:04:22', '7592b182b029cd3051287e0dcbe8a984393a01ff', NULL, '2009-12-01 05:04:22', NULL, 'john', 'john@test.com')[0m
+Redirected to http://www.example.com/
+Completed in 8ms (DB: 1) | 302 Found [http://www.example.com/users]
+REQUESTING PAGE: GET http://www.example.com/ with {} and HTTP headers {"HTTP_REFERER"=>"/users"}
+
+
+Processing HomepageController#index (for 127.0.0.1 at 2009-11-30 23:04:22) [GET]
+Rendering homepage/index
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://www.example.com/]
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'John') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = '"john"') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = '"john"@timetrac.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'john') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'john@timetrac.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.3ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "login", "email") VALUES('John', '84bf07b5660471282659d473cb4c215b36eb157a', '2009-12-01 05:05:13', '4688b0b1aaf1369b6c27110e58990b1671fd0b88', NULL, '2009-12-01 05:05:13', NULL, 'john', 'john@timetrac.com')[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'John') LIMIT 1[0m
+REQUESTING PAGE: GET /users/new with {} and HTTP headers {}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-30 23:05:13) [GET]
+Rendering users/new
+Completed in 6ms (View: 4, DB: 1) | 200 OK [http://www.example.com/users/new]
+REQUESTING PAGE: POST /users with {"commit"=>"Sign up", "user"=>{"name"=>"John Doe", "password_confirmation"=>"password", "password"=>"password", "login"=>"John", "email"=>"john@test.com"}} and HTTP headers {"HTTP_REFERER"=>"/users/new"}
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-11-30 23:05:13) [POST]
+  Parameters: {"commit"=>"Sign up", "user"=>{"name"=>"John Doe", "password_confirmation"=>"password", "login"=>"John", "password"=>"password", "email"=>"john@test.com"}}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'john') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'john@test.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "login", "email") VALUES('John Doe', '487eae6c4610861fd1dbf1b93f15b26f85f34f36', '2009-12-01 05:05:13', 'bc4b3a1256741995ccf0f791473fdd993b7af669', NULL, '2009-12-01 05:05:13', NULL, 'john', 'john@test.com')[0m
+Redirected to http://www.example.com/
+Completed in 7ms (DB: 1) | 302 Found [http://www.example.com/users]
+REQUESTING PAGE: GET http://www.example.com/ with {} and HTTP headers {"HTTP_REFERER"=>"/users"}
+
+
+Processing HomepageController#index (for 127.0.0.1 at 2009-11-30 23:05:13) [GET]
+Rendering homepage/index
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://www.example.com/]
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'John') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = '"john"') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = '"john"@timetrac.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'john') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'john@timetrac.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.3ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "login", "email") VALUES('John', '72ee62e1440e2ef784a4295e11c750bd90230a32', '2009-12-01 05:06:20', '9106016ec13b5588f7ea337fbc7d28b1bc36ab72', NULL, '2009-12-01 05:06:20', NULL, 'john', 'john@timetrac.com')[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'John') LIMIT 1[0m
+REQUESTING PAGE: GET /users/new with {} and HTTP headers {}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-30 23:06:20) [GET]
+Rendering users/new
+Completed in 6ms (View: 4, DB: 1) | 200 OK [http://www.example.com/users/new]
+REQUESTING PAGE: POST /users with {"commit"=>"Sign up", "user"=>{"name"=>"John Doe", "password_confirmation"=>"password", "password"=>"password", "login"=>"John", "email"=>"john@test.com"}} and HTTP headers {"HTTP_REFERER"=>"/users/new"}
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-11-30 23:06:20) [POST]
+  Parameters: {"commit"=>"Sign up", "user"=>{"name"=>"John Doe", "password_confirmation"=>"password", "login"=>"John", "password"=>"password", "email"=>"john@test.com"}}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'john') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'john@test.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "login", "email") VALUES('John Doe', 'b163844cb9a26b6f7e7bdf7c1bb5ac012119981b', '2009-12-01 05:06:20', '5235d8c1880cd31b784cc9ef17695bd871cc0d92', NULL, '2009-12-01 05:06:20', NULL, 'john', 'john@test.com')[0m
+Redirected to http://www.example.com/
+Completed in 8ms (DB: 1) | 302 Found [http://www.example.com/users]
+REQUESTING PAGE: GET http://www.example.com/ with {} and HTTP headers {"HTTP_REFERER"=>"/users"}
+
+
+Processing HomepageController#index (for 127.0.0.1 at 2009-11-30 23:06:20) [GET]
+Rendering homepage/index
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://www.example.com/]
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'John') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = '"john"') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = '"john"@timetrac.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'john') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'john@timetrac.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.3ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "login", "email") VALUES('John', '10f9b713bfcbf09f86e2bf978f4aa28d1f943d80', '2009-12-01 05:23:02', '8716d725c4b82adc15b4de8983d7885d8ab9353d', NULL, '2009-12-01 05:23:02', NULL, 'john', 'john@timetrac.com')[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'John') LIMIT 1[0m
+REQUESTING PAGE: GET /users/new with {} and HTTP headers {}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-30 23:23:02) [GET]
+Rendering users/new
+Completed in 6ms (View: 4, DB: 1) | 200 OK [http://www.example.com/users/new]
+REQUESTING PAGE: POST /users with {"commit"=>"Sign up", "user"=>{"name"=>"John Doe", "password_confirmation"=>"password", "password"=>"password", "login"=>"John", "email"=>"john@test.com"}} and HTTP headers {"HTTP_REFERER"=>"/users/new"}
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-11-30 23:23:02) [POST]
+  Parameters: {"commit"=>"Sign up", "user"=>{"name"=>"John Doe", "password_confirmation"=>"password", "login"=>"John", "password"=>"password", "email"=>"john@test.com"}}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'john') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'john@test.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "login", "email") VALUES('John Doe', 'e59af2a4e558d6d828871d468b3a17d78fd137ef', '2009-12-01 05:23:02', 'e3ae2b8cb34b57e43e0f0e33a7a96be16f087915', NULL, '2009-12-01 05:23:02', NULL, 'john', 'john@test.com')[0m
+Redirected to http://www.example.com/
+Completed in 8ms (DB: 1) | 302 Found [http://www.example.com/users]
+REQUESTING PAGE: GET http://www.example.com/ with {} and HTTP headers {"HTTP_REFERER"=>"/users"}
+
+
+Processing HomepageController#index (for 127.0.0.1 at 2009-11-30 23:23:02) [GET]
+Rendering homepage/index
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://www.example.com/]
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'John') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = '"john"') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = '"john"@timetrac.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'john') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'john@timetrac.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.3ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "login", "email") VALUES('John', 'ba50070348fd930c8d3c95242d671d676404e454', '2009-12-01 05:35:54', '090975b86ffb88c4796966ddd20dc278cd3df57e', NULL, '2009-12-01 05:35:54', NULL, 'john', 'john@timetrac.com')[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'John') LIMIT 1[0m
+REQUESTING PAGE: GET /users/new with {} and HTTP headers {}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-30 23:35:54) [GET]
+Rendering users/new
+Completed in 6ms (View: 4, DB: 1) | 200 OK [http://www.example.com/users/new]
+REQUESTING PAGE: POST /users with {"commit"=>"Sign up", "user"=>{"name"=>"John Doe", "password_confirmation"=>"password", "password"=>"password", "login"=>"John", "email"=>"john@test.com"}} and HTTP headers {"HTTP_REFERER"=>"/users/new"}
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-11-30 23:35:54) [POST]
+  Parameters: {"commit"=>"Sign up", "user"=>{"name"=>"John Doe", "password_confirmation"=>"password", "login"=>"John", "password"=>"password", "email"=>"john@test.com"}}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'john') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'john@test.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "login", "email") VALUES('John Doe', 'd4fddec320b036f0b2d00187f9055df65f7ee75b', '2009-12-01 05:35:54', 'e8151f60bd790f0b0090e2bdc70139da9c53209e', NULL, '2009-12-01 05:35:54', NULL, 'john', 'john@test.com')[0m
+Redirected to http://www.example.com/
+Completed in 8ms (DB: 1) | 302 Found [http://www.example.com/users]
+REQUESTING PAGE: GET http://www.example.com/ with {} and HTTP headers {"HTTP_REFERER"=>"/users"}
+
+
+Processing HomepageController#index (for 127.0.0.1 at 2009-11-30 23:35:54) [GET]
+Rendering homepage/index
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://www.example.com/]
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'John') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = '"john"') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = '"john"@timetrac.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'john') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'john@timetrac.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.3ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "login", "email") VALUES('John', '74b87aaa99f7ba45967a87c6bb328f036fa67c7d', '2009-12-01 05:38:49', '117297d5e2ac75864d75a7edac008bd17ef3622c', NULL, '2009-12-01 05:38:49', NULL, 'john', 'john@timetrac.com')[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'John') LIMIT 1[0m
+REQUESTING PAGE: GET /users/new with {} and HTTP headers {}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-30 23:38:49) [GET]
+Rendering users/new
+Completed in 6ms (View: 4, DB: 1) | 200 OK [http://www.example.com/users/new]
+REQUESTING PAGE: POST /users with {"commit"=>"Sign up", "user"=>{"name"=>"John Doe", "password_confirmation"=>"password", "password"=>"password", "login"=>"John", "email"=>"john@test.com"}} and HTTP headers {"HTTP_REFERER"=>"/users/new"}
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-11-30 23:38:49) [POST]
+  Parameters: {"commit"=>"Sign up", "user"=>{"name"=>"John Doe", "password_confirmation"=>"password", "login"=>"John", "password"=>"password", "email"=>"john@test.com"}}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'john') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'john@test.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "login", "email") VALUES('John Doe', '38cde21d0ae7768a9f7bc4ba9e8b326cba33ef22', '2009-12-01 05:38:49', '6dba2398ac931b67ad90258273b7ff1fc36de067', NULL, '2009-12-01 05:38:49', NULL, 'john', 'john@test.com')[0m
+Redirected to http://www.example.com/
+Completed in 8ms (DB: 1) | 302 Found [http://www.example.com/users]
+REQUESTING PAGE: GET http://www.example.com/ with {} and HTTP headers {"HTTP_REFERER"=>"/users"}
+
+
+Processing HomepageController#index (for 127.0.0.1 at 2009-11-30 23:38:49) [GET]
+Rendering homepage/index
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://www.example.com/]
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'John') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = '"john"') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = '"john"@timetrac.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'john') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'john@timetrac.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.3ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "login", "email") VALUES('John', '2593d924c53b7fc743c541c60c548e7b906ccff3', '2009-12-01 05:40:35', '5146454b704ef38a26039c4ad82513ef07818a25', NULL, '2009-12-01 05:40:35', NULL, 'john', 'john@timetrac.com')[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'John') LIMIT 1[0m
+REQUESTING PAGE: GET /users/new with {} and HTTP headers {}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-30 23:40:35) [GET]
+Rendering users/new
+Completed in 6ms (View: 4, DB: 1) | 200 OK [http://www.example.com/users/new]
+REQUESTING PAGE: POST /users with {"commit"=>"Sign up", "user"=>{"name"=>"John Doe", "password_confirmation"=>"password", "password"=>"password", "login"=>"John", "email"=>"john@test.com"}} and HTTP headers {"HTTP_REFERER"=>"/users/new"}
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-11-30 23:40:35) [POST]
+  Parameters: {"commit"=>"Sign up", "user"=>{"name"=>"John Doe", "password_confirmation"=>"password", "login"=>"John", "password"=>"password", "email"=>"john@test.com"}}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'john') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'john@test.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.3ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "login", "email") VALUES('John Doe', 'e7260712d54c49029a75cf266ef44aee0b04b97c', '2009-12-01 05:40:35', 'e7c1acac1efa9cf035943d2b13c1d7b9c40858ff', NULL, '2009-12-01 05:40:35', NULL, 'john', 'john@test.com')[0m
+Redirected to http://www.example.com/
+Completed in 7ms (DB: 1) | 302 Found [http://www.example.com/users]
+REQUESTING PAGE: GET http://www.example.com/ with {} and HTTP headers {"HTTP_REFERER"=>"/users"}
+
+
+Processing HomepageController#index (for 127.0.0.1 at 2009-11-30 23:40:35) [GET]
+Rendering homepage/index
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://www.example.com/]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'john') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = '"john"') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = '"john"@timetrac.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'john') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'john@timetrac.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.3ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "login", "email") VALUES('John', 'b5877bf442ef066c54e43d8de4b48cd64a6b9737', '2009-12-01 05:42:10', '05822f44dde135547929dfbee0693dfc4414d468', NULL, '2009-12-01 05:42:10', NULL, 'john', 'john@timetrac.com')[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'John') LIMIT 1[0m
+REQUESTING PAGE: GET /users/new with {} and HTTP headers {}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-30 23:42:10) [GET]
+Rendering users/new
+Completed in 6ms (View: 4, DB: 1) | 200 OK [http://www.example.com/users/new]
+REQUESTING PAGE: POST /users with {"commit"=>"Sign up", "user"=>{"name"=>"John Doe", "password_confirmation"=>"password", "password"=>"password", "login"=>"John", "email"=>"john@test.com"}} and HTTP headers {"HTTP_REFERER"=>"/users/new"}
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-11-30 23:42:10) [POST]
+  Parameters: {"commit"=>"Sign up", "user"=>{"name"=>"John Doe", "password_confirmation"=>"password", "login"=>"John", "password"=>"password", "email"=>"john@test.com"}}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'john') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'john@test.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "login", "email") VALUES('John Doe', 'cb1b12884e4a092c2c6cf34379180db140be6c15', '2009-12-01 05:42:10', '1edbcc19862e1befc23c38fe24ec4835c9a8ed4c', NULL, '2009-12-01 05:42:10', NULL, 'john', 'john@test.com')[0m
+Redirected to http://www.example.com/
+Completed in 8ms (DB: 1) | 302 Found [http://www.example.com/users]
+REQUESTING PAGE: GET http://www.example.com/ with {} and HTTP headers {"HTTP_REFERER"=>"/users"}
+
+
+Processing HomepageController#index (for 127.0.0.1 at 2009-11-30 23:42:10) [GET]
+Rendering homepage/index
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://www.example.com/]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'john') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = '"john"') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = '"john"@timetrac.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'john') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'john@timetrac.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.3ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "login", "email") VALUES('John', '46dcdd6c401648465a2179af1178243b4a54a296', '2009-12-01 05:43:57', '58c9277e1e1eda309828beed2d54565b55d036cc', NULL, '2009-12-01 05:43:57', NULL, 'john', 'john@timetrac.com')[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'John') LIMIT 1[0m
+REQUESTING PAGE: GET /users/new with {} and HTTP headers {}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-30 23:43:57) [GET]
+Rendering users/new
+Completed in 6ms (View: 4, DB: 1) | 200 OK [http://www.example.com/users/new]
+REQUESTING PAGE: POST /users with {"commit"=>"Sign up", "user"=>{"name"=>"John Doe", "password_confirmation"=>"password", "password"=>"password", "login"=>"John", "email"=>"john@test.com"}} and HTTP headers {"HTTP_REFERER"=>"/users/new"}
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-11-30 23:43:57) [POST]
+  Parameters: {"commit"=>"Sign up", "user"=>{"name"=>"John Doe", "password_confirmation"=>"password", "login"=>"John", "password"=>"password", "email"=>"john@test.com"}}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'john') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'john@test.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "login", "email") VALUES('John Doe', '000503b77aea5f90c45004aa140d26954445332e', '2009-12-01 05:43:57', '13b41fa4bb912be5560d5e43fce8d5bbf243f8e2', NULL, '2009-12-01 05:43:57', NULL, 'john', 'john@test.com')[0m
+Redirected to http://www.example.com/
+Completed in 8ms (DB: 1) | 302 Found [http://www.example.com/users]
+REQUESTING PAGE: GET http://www.example.com/ with {} and HTTP headers {"HTTP_REFERER"=>"/users"}
+
+
+Processing HomepageController#index (for 127.0.0.1 at 2009-11-30 23:43:57) [GET]
+Rendering homepage/index
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://www.example.com/]
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = '"john"') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = '"john"@timetrac.com') LIMIT 1[0m

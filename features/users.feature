@@ -10,12 +10,9 @@ Feature: Users
 		|Email								|john@test.com|
 		|Name									|John Doe			|
 		|Password							|password			|
-		|Password confirmation|password			|
-	When I press "Create"
-	Then I should be on "John"'s user page
-	And I should see "John"
-	And I should see "john@test.com"
-	And I should see "John Doe"
+		|Password Confirmation|password			|
+	When I press "Sign up"
+	Then I should be on the home page
 	
 	Scenario: Logging in as a User
 	Given I have a user named "John"
