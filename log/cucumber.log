@@ -1,1 +1,440 @@
-# Logfile created on Tue Nov 24 21:57:45 -0600 2009
+# Logfile created on Tue Nov 24 21:57:45 -0600 2009  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'john@timetrac.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'john') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '91b3819bdf6acbd89ff67338043c28d062dbd34c18f8e7bb92fe895a3b28ed43e92fd59a98a45bdc0383827b2fde593b7f65a08c6bfcdf82832f59368522eebc') LIMIT 1[0m
+  [4;35;1mUser Create (0.4ms)[0m   [0mINSERT INTO "users" ("name", "created_at", "crypted_password", "updated_at", "password_salt", "persistence_token", "login", "email") VALUES('John', '2009-11-30 22:10:57', 'd1f7e6764be818a367108104a247b674d5f819d7afdac16cc612a15abc8877b469eff21fb96606146b22e1a0aa7156eac2c0dbe450805580777d385e66ded803', '2009-11-30 22:10:57', 'xc71bZxXm1c_i1v3p4iX', '91b3819bdf6acbd89ff67338043c28d062dbd34c18f8e7bb92fe895a3b28ed43e92fd59a98a45bdc0383827b2fde593b7f65a08c6bfcdf82832f59368522eebc', 'John', 'John@timetrac.com')[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'John') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'john@timetrac.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'john') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '3685643854cfded28c42a592e845f6dafc9d51dad982fe4d29ee43bb65c91380e43a28936c32529ddfa50e6b03fba6bb55c96d62bb1d2650cae49ea8c949f716') LIMIT 1[0m
+  [4;35;1mUser Create (0.3ms)[0m   [0mINSERT INTO "users" ("name", "created_at", "crypted_password", "updated_at", "password_salt", "persistence_token", "login", "email") VALUES('John', '2009-11-30 22:18:21', '2ce46a1c801beb71f35a78487f46f7ff7b4959c91b14e40539fdb425003f7aa6d40fdfdd71c47726c96b1da59c76f419e5deaf6b05699b0588d25252254341ab', '2009-11-30 22:18:21', 'LwR_4eTnTY6ZyqvDWqrE', '3685643854cfded28c42a592e845f6dafc9d51dad982fe4d29ee43bb65c91380e43a28936c32529ddfa50e6b03fba6bb55c96d62bb1d2650cae49ea8c949f716', 'John', 'John@timetrac.com')[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'John') LIMIT 1[0m
+REQUESTING PAGE: GET /user/new with {} and HTTP headers {}
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-11-30 16:18:21) [GET]
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'john@timetrac.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'john') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '8e606ba34ef78a62d319161fcaa4f9f4a26a9b645064eb612f1f7a54a2c1333a0eb5aff1279c1e45240ab9dba7cd9b3a67879916f183354e10bfd23a24b1b842') LIMIT 1[0m
+  [4;35;1mUser Create (0.5ms)[0m   [0mINSERT INTO "users" ("name", "created_at", "crypted_password", "updated_at", "password_salt", "persistence_token", "login", "email") VALUES('John', '2009-11-30 22:19:19', '327f8a9272adce7fb2da26e37d9141ca5e38ff5d2501deebd0c33bcba0ef2152d07cd1f9f33822e14de1fff9c05d37abf2181aa0ca6067af54852956224fe63f', '2009-11-30 22:19:19', '1PddKQfxHRXyK4hLrwo-', '8e606ba34ef78a62d319161fcaa4f9f4a26a9b645064eb612f1f7a54a2c1333a0eb5aff1279c1e45240ab9dba7cd9b3a67879916f183354e10bfd23a24b1b842', 'John', 'John@timetrac.com')[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'John') LIMIT 1[0m
+REQUESTING PAGE: GET /users/new with {} and HTTP headers {}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-30 16:19:19) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 31ms (View: 29, DB: 1) | 200 OK [http://www.example.com/users/new]
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'john@timetrac.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'john') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '418e010e516cf6337bec527bb42221e77c4b44a07ea9d9fbb942a0d432e19102022ace1f1001666bee74cb12a770697d1a6f208a77fa534969448ebf00b664fb') LIMIT 1[0m
+  [4;35;1mUser Create (0.3ms)[0m   [0mINSERT INTO "users" ("name", "created_at", "crypted_password", "updated_at", "password_salt", "persistence_token", "login", "email") VALUES('John', '2009-11-30 22:29:47', '17855071c64f4a91014b1ce4110a66df8af87623844baa5245beba4c541f8bb1ff1a59bafb4c216fc32bd6d7dd9913c01a9988b9600fb52fd2db0d33309a1699', '2009-11-30 22:29:47', '91CmN0FhYNWMISV-pBhv', '418e010e516cf6337bec527bb42221e77c4b44a07ea9d9fbb942a0d432e19102022ace1f1001666bee74cb12a770697d1a6f208a77fa534969448ebf00b664fb', 'John', 'John@timetrac.com')[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'John') LIMIT 1[0m
+REQUESTING PAGE: GET /users/new with {} and HTTP headers {}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-30 16:29:47) [GET]
+Rendering template within layouts/users
+Rendering users/new
+
+
+Processing ApplicationController#new (for 127.0.0.1 at 2009-11-30 16:29:47) [GET]
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'john@timetrac.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'john') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '0051f9f784869038e0d4b72fb47aef9230059e07faa5d792929952166525f913e310d908f6a7ab18cdebb1d6363455262bd50672b3a6e3b9c6c97d6ae5ba5713') LIMIT 1[0m
+  [4;35;1mUser Create (0.3ms)[0m   [0mINSERT INTO "users" ("name", "created_at", "crypted_password", "updated_at", "password_salt", "persistence_token", "login", "email") VALUES('John', '2009-11-30 22:31:09', 'b556f0df80e92a39fa20a924860d9d58f6ede6858c59d37d7c387c51f10605866f33a5a1b410314e5c8fff0d7a28ebb53e6b4e1ae70861cfdc8c339883c8597f', '2009-11-30 22:31:09', 'z9K13rk3vXOibBsh5fEN', '0051f9f784869038e0d4b72fb47aef9230059e07faa5d792929952166525f913e310d908f6a7ab18cdebb1d6363455262bd50672b3a6e3b9c6c97d6ae5ba5713', 'John', 'John@timetrac.com')[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'John') LIMIT 1[0m
+REQUESTING PAGE: GET /users/new with {} and HTTP headers {}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-30 16:31:09) [GET]
+Rendering template within layouts/users
+Rendering users/new
+
+
+Processing ApplicationController#new (for 127.0.0.1 at 2009-11-30 16:31:09) [GET]
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'john@timetrac.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'john') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = 'c3779efdae01e19e006b510367b6da012fb9e69c2b9f2106c9115e07a2bb1c63ee2e0ce3e50d1623642a7b4ea3e9a7a80e796d88bb18f7c682e98296a807341e') LIMIT 1[0m
+  [4;35;1mUser Create (0.3ms)[0m   [0mINSERT INTO "users" ("name", "created_at", "crypted_password", "updated_at", "password_salt", "persistence_token", "login", "email") VALUES('John', '2009-11-30 22:34:34', '138288b408fcfc9c168aa681ac3db0ebd97b7b268da6b59fe9fbfa0644a903ca57d73bf75da8897e64925be48d4614adf34b1e02cccf3febbcac0b002f8a6b27', '2009-11-30 22:34:34', '4CmKJH-w065TiaIt3T-Y', 'c3779efdae01e19e006b510367b6da012fb9e69c2b9f2106c9115e07a2bb1c63ee2e0ce3e50d1623642a7b4ea3e9a7a80e796d88bb18f7c682e98296a807341e', 'John', 'John@timetrac.com')[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'John') LIMIT 1[0m
+REQUESTING PAGE: GET /users/new with {} and HTTP headers {}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-30 16:34:34) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 7ms (View: 5, DB: 1) | 200 OK [http://www.example.com/users/new]
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'john@timetrac.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'john') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = 'be21934c561a5d9698cecb4903504ce512773a88821f79218d50bfee474b25eb09114b35078fc8a95e3038827893c87b287ed8d7731f672be1982241891e6d2e') LIMIT 1[0m
+  [4;35;1mUser Create (0.3ms)[0m   [0mINSERT INTO "users" ("name", "created_at", "crypted_password", "updated_at", "password_salt", "persistence_token", "login", "email") VALUES('John', '2009-11-30 22:34:53', '6f46f8bbcab6ad358d38e5dcd35f9a2cf6a9673944164d123cb60620eac0643475d674d5475f3b2f9b9d0debab9650b1bd58b8318e6282850c2d9887ad5d9297', '2009-11-30 22:34:53', '2JzRZbldoqQHabQu_gc9', 'be21934c561a5d9698cecb4903504ce512773a88821f79218d50bfee474b25eb09114b35078fc8a95e3038827893c87b287ed8d7731f672be1982241891e6d2e', 'John', 'John@timetrac.com')[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'John') LIMIT 1[0m
+REQUESTING PAGE: GET /users/new with {} and HTTP headers {}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-30 16:34:53) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 7ms (View: 5, DB: 1) | 200 OK [http://www.example.com/users/new]
+REQUESTING PAGE: POST /users with {"commit"=>"Create", "user"=>{"name"=>"John Doe", "password_confirmation"=>"password", "password"=>"password", "login"=>"John", "email"=>"john@test.com"}} and HTTP headers {"HTTP_REFERER"=>"/users/new"}
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-11-30 16:34:53) [POST]
+  Parameters: {"commit"=>"Create", "user"=>{"name"=>"John Doe", "password_confirmation"=>"password", "login"=>"John", "password"=>"password", "email"=>"john@test.com"}}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'john@test.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'john') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '7dcd5f91be827fd885d925a7267a064bc6a67788a188fb1533fb74b51544153d5ead108718464f9cff8b8cb0f7e33e13f328720908800ac08843d9a316a7fdb1') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO "users" ("name", "created_at", "crypted_password", "updated_at", "password_salt", "persistence_token", "login", "email") VALUES('John Doe', '2009-11-30 22:34:53', '9bd9c709fc497316dc73b042952a2c84d0f424fb2f19a298792335f682a94bccaf52a38b3d4e4db5874e6ffa379eaaec637ebb7c7a9b947d9a5daa6298bdc962', '2009-11-30 22:34:53', 'Oa_hqLn9JCIXOJQcNg5I', '7dcd5f91be827fd885d925a7267a064bc6a67788a188fb1533fb74b51544153d5ead108718464f9cff8b8cb0f7e33e13f328720908800ac08843d9a316a7fdb1', 'John', 'john@test.com')[0m
+Redirected to http://www.example.com/users/1
+Completed in 6ms (DB: 1) | 302 Found [http://www.example.com/users]
+REQUESTING PAGE: GET http://www.example.com/users/1 with {} and HTTP headers {"HTTP_REFERER"=>"/users"}
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-30 16:34:53) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/users
+Rendering users/show
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://www.example.com/users/1]
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'john@timetrac.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'john') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = 'f4117d0507be11df90f2f1f98eff21fa8240e0193b5aea5fbfa032532692826c99d8eee9878543b03537c2fdfd11d8b5ac27189674f459d9af46423802b39889') LIMIT 1[0m
+  [4;35;1mUser Create (0.3ms)[0m   [0mINSERT INTO "users" ("name", "created_at", "crypted_password", "updated_at", "password_salt", "persistence_token", "login", "email") VALUES('John', '2009-11-30 22:37:40', 'f5524666cad59af5dc3e5590dac08c23fcdf56360fcefcc6f19a8b416f65c80632a0bd7cd6fd829582f4756dd2f17bb82444201804cc410d9e380ca2ced206e4', '2009-11-30 22:37:40', '_fC_MrmAWfjUItzGzrS5', 'f4117d0507be11df90f2f1f98eff21fa8240e0193b5aea5fbfa032532692826c99d8eee9878543b03537c2fdfd11d8b5ac27189674f459d9af46423802b39889', 'John', 'John@timetrac.com')[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'John') LIMIT 1[0m
+REQUESTING PAGE: GET /users/new with {} and HTTP headers {}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-30 16:37:40) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 8ms (View: 6, DB: 1) | 200 OK [http://www.example.com/users/new]
+REQUESTING PAGE: POST /users with {"commit"=>"Create", "user"=>{"name"=>"John Doe", "password_confirmation"=>"password", "password"=>"password", "login"=>"John", "email"=>"john@test.com"}} and HTTP headers {"HTTP_REFERER"=>"/users/new"}
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-11-30 16:37:40) [POST]
+  Parameters: {"commit"=>"Create", "user"=>{"name"=>"John Doe", "password_confirmation"=>"password", "login"=>"John", "password"=>"password", "email"=>"john@test.com"}}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'john@test.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'john') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '75222ee6ad23f0a6c3158679fb3dc937ebb4230972e1bc058aa6b66071addd2fb79d2ddc6886660240f4441898cd90439138f162c5aa18cddb6586108bd011bd') LIMIT 1[0m
+  [4;36;1mUser Create (0.3ms)[0m   [0;1mINSERT INTO "users" ("name", "created_at", "crypted_password", "updated_at", "password_salt", "persistence_token", "login", "email") VALUES('John Doe', '2009-11-30 22:37:40', '7164970faec7e1c54f4a8abbc537bf57b670da744ccbc0038e659f98d59eb2e15a06af72d35dfe21aecc025b1e16626b5d04870add0ac715f103811b3a3fcda1', '2009-11-30 22:37:40', 'EZpQNVC_q1YxvZKAIj5c', '75222ee6ad23f0a6c3158679fb3dc937ebb4230972e1bc058aa6b66071addd2fb79d2ddc6886660240f4441898cd90439138f162c5aa18cddb6586108bd011bd', 'John', 'john@test.com')[0m
+Redirected to http://www.example.com/users/1
+Completed in 7ms (DB: 1) | 302 Found [http://www.example.com/users]
+REQUESTING PAGE: GET http://www.example.com/users/1 with {} and HTTP headers {"HTTP_REFERER"=>"/users"}
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-30 16:37:40) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/users
+Rendering users/show
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://www.example.com/users/1]
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" IS NULL) LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'john@timetrac.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'john') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '1dd83d48d57e5c7ebe50ebc320b2903fe23347fb3f44f6742269a22995ff3220bf21000b28e66cb33f2879cce5d0fbcfe56879736f373621b8078aca31904201') LIMIT 1[0m
+  [4;35;1mUser Create (0.3ms)[0m   [0mINSERT INTO "users" ("name", "created_at", "crypted_password", "updated_at", "password_salt", "persistence_token", "login", "email") VALUES('John', '2009-11-30 22:38:56', 'bf42fa27c22b80a17be3b268f0a60ba8e9e0c5df105fbbb2d4baf13f1f965e093faa7b1829988d00321edeea5c01f3ea743e2b3679d663830440e025bfeeba3a', '2009-11-30 22:38:56', 'nDgc4awtZSoGNHxEEjjL', '1dd83d48d57e5c7ebe50ebc320b2903fe23347fb3f44f6742269a22995ff3220bf21000b28e66cb33f2879cce5d0fbcfe56879736f373621b8078aca31904201', 'John', 'John@timetrac.com')[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'John') LIMIT 1[0m
+REQUESTING PAGE: GET /users/new with {} and HTTP headers {}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-30 16:38:56) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 7ms (View: 5, DB: 1) | 200 OK [http://www.example.com/users/new]
+REQUESTING PAGE: POST /users with {"commit"=>"Create", "user"=>{"name"=>"John Doe", "password_confirmation"=>"password", "password"=>"password", "login"=>"John", "email"=>"john@test.com"}} and HTTP headers {"HTTP_REFERER"=>"/users/new"}
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-11-30 16:38:56) [POST]
+  Parameters: {"commit"=>"Create", "user"=>{"name"=>"John Doe", "password_confirmation"=>"password", "login"=>"John", "password"=>"password", "email"=>"john@test.com"}}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'john@test.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'john') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '91940d606c3e0b1c84a7cc28c25409a0755e3ae09c6ea1a041852651d4aca9d4f5537e5060b7cf3e74b5ae8f1ecc3bba3fcde016ed4e1cd8463e779707566e12') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO "users" ("name", "created_at", "crypted_password", "updated_at", "password_salt", "persistence_token", "login", "email") VALUES('John Doe', '2009-11-30 22:38:56', '19d69d3ab93374db0fa57e6f47b0f877514e207d62f489dc7751c0fc9bcf3fad3d0fcb6dd7027e17e83cd7cdfed7bcff379fd9c09f69134e83c1a6c7bcf07600', '2009-11-30 22:38:56', 'o2aWMNGMD1GtOQFZJD0B', '91940d606c3e0b1c84a7cc28c25409a0755e3ae09c6ea1a041852651d4aca9d4f5537e5060b7cf3e74b5ae8f1ecc3bba3fcde016ed4e1cd8463e779707566e12', 'John', 'john@test.com')[0m
+Redirected to http://www.example.com/users/1
+Completed in 6ms (DB: 1) | 302 Found [http://www.example.com/users]
+REQUESTING PAGE: GET http://www.example.com/users/1 with {} and HTTP headers {"HTTP_REFERER"=>"/users"}
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-30 16:38:56) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/users
+Rendering users/show
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://www.example.com/users/1]
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" IS NULL) LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'john@timetrac.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'john') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '2856a1bf1619c15312fdac021ac265693c3b5bc9ca3a7db42d97ed03d3daeb6225aae18e04f4579d4c08c8c25ef5adc44c1d88c5e227fe0bd679a0b699836cb9') LIMIT 1[0m
+  [4;35;1mUser Create (0.3ms)[0m   [0mINSERT INTO "users" ("name", "created_at", "crypted_password", "updated_at", "password_salt", "persistence_token", "login", "email") VALUES('John', '2009-11-30 22:41:48', 'cb57f0955e9c1d0f30e50df1b743e5a9fdfcab3c05ab5e2d8e274e305310c9052b5a9085d660920170318f15a6661b91f1d822a1374f1a861c1d20b6d92f5344', '2009-11-30 22:41:48', 'goRYvW5jXoQE-XqEI34I', '2856a1bf1619c15312fdac021ac265693c3b5bc9ca3a7db42d97ed03d3daeb6225aae18e04f4579d4c08c8c25ef5adc44c1d88c5e227fe0bd679a0b699836cb9', 'John', 'John@timetrac.com')[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'John') LIMIT 1[0m
+REQUESTING PAGE: GET /users/new with {} and HTTP headers {}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-30 16:41:48) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 7ms (View: 5, DB: 1) | 200 OK [http://www.example.com/users/new]
+REQUESTING PAGE: POST /users with {"commit"=>"Create", "user"=>{"name"=>"John Doe", "password_confirmation"=>"password", "password"=>"password", "login"=>"John", "email"=>"john@test.com"}} and HTTP headers {"HTTP_REFERER"=>"/users/new"}
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-11-30 16:41:48) [POST]
+  Parameters: {"commit"=>"Create", "user"=>{"name"=>"John Doe", "password_confirmation"=>"password", "login"=>"John", "password"=>"password", "email"=>"john@test.com"}}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'john@test.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'john') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '99b9bffd57901fbb6f6eec189595b1cc64b5fbd0e0f9be31371b4dc522fb9cb3700476078b5619e4325c1135a699319d924730c0721c776282f2fa81b7f55af4') LIMIT 1[0m
+  [4;36;1mUser Create (0.3ms)[0m   [0;1mINSERT INTO "users" ("name", "created_at", "crypted_password", "updated_at", "password_salt", "persistence_token", "login", "email") VALUES('John Doe', '2009-11-30 22:41:48', 'e23967091f88aeca0f561379e7200605def4a48e251a34ddc446e7630f697aefbf0f72547f1e74a502d3f0f1dd5e6bcfe2fbc4c535fd8522ed46f5b5daca4240', '2009-11-30 22:41:48', 'RpDyuFFHWnlmaP5oZIf6', '99b9bffd57901fbb6f6eec189595b1cc64b5fbd0e0f9be31371b4dc522fb9cb3700476078b5619e4325c1135a699319d924730c0721c776282f2fa81b7f55af4', 'John', 'john@test.com')[0m
+Redirected to http://www.example.com/users/1
+Completed in 6ms (DB: 1) | 302 Found [http://www.example.com/users]
+REQUESTING PAGE: GET http://www.example.com/users/1 with {} and HTTP headers {"HTTP_REFERER"=>"/users"}
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-30 16:41:48) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/users
+Rendering users/show
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://www.example.com/users/1]
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" IS NULL) LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" [0m
+REQUESTING PAGE: GET /users/new with {} and HTTP headers {}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-30 16:47:02) [GET]
+
+
+Processing ApplicationController#new (for 127.0.0.1 at 2009-11-30 16:47:02) [GET]
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (1.5ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20091127000634)
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "email" varchar(255), "name" varchar(255), "crypted_password" varchar(255), "password_salt" varchar(255), "persistence_token" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091127000634')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'john@timetrac.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'john') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '6be92bda8eacf3dd0d40cfb05af348bb17f202da5a0f29d2929fdf24e1846a1ec73ef29f9c7220ce60e169d30db4fc998815d6231f7259784f2b922e07b68915') LIMIT 1[0m
+  [4;35;1mUser Create (0.3ms)[0m   [0mINSERT INTO "users" ("name", "created_at", "crypted_password", "updated_at", "password_salt", "persistence_token", "login", "email") VALUES('John', '2009-11-30 22:47:40', '5744fcc3b3be2ed407045229adeccfcfa15acf4776012cfb3b3b75c69e40371778105b13e5e357c2d6c4b8b4c93bc55300953a7cf0f8417e0ef429d906eae987', '2009-11-30 22:47:40', 'RVGzN4eo9zu_xPOnNomC', '6be92bda8eacf3dd0d40cfb05af348bb17f202da5a0f29d2929fdf24e1846a1ec73ef29f9c7220ce60e169d30db4fc998815d6231f7259784f2b922e07b68915', 'John', 'John@timetrac.com')[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'John') LIMIT 1[0m
+REQUESTING PAGE: GET /users/new with {} and HTTP headers {}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-30 16:47:40) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 7ms (View: 5, DB: 1) | 200 OK [http://www.example.com/users/new]
+REQUESTING PAGE: POST /users with {"commit"=>"Create", "user"=>{"name"=>"John Doe", "password_confirmation"=>"password", "password"=>"password", "login"=>"John", "email"=>"john@test.com"}} and HTTP headers {"HTTP_REFERER"=>"/users/new"}
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-11-30 16:47:40) [POST]
+  Parameters: {"commit"=>"Create", "user"=>{"name"=>"John Doe", "password_confirmation"=>"password", "login"=>"John", "password"=>"password", "email"=>"john@test.com"}}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'john@test.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'john') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '4b99546d4328bb1aa7c09ca1901741745301e2b9cc18ce6de0db901dbd74fb67bab8aed5329335cc004e77a856434785831f86ab129e36b3b598af9025f36e83') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO "users" ("name", "created_at", "crypted_password", "updated_at", "password_salt", "persistence_token", "login", "email") VALUES('John Doe', '2009-11-30 22:47:40', 'faf2cbac2202b302869def40311a31e24da860cb52f943dfea2efb41f5bbcf972a06f206043f18dd113c10a3109e1e4563138009070aef9149983c0340c876f3', '2009-11-30 22:47:40', 'CjTUsrtWzJ4lyQ_GNLYK', '4b99546d4328bb1aa7c09ca1901741745301e2b9cc18ce6de0db901dbd74fb67bab8aed5329335cc004e77a856434785831f86ab129e36b3b598af9025f36e83', 'John', 'john@test.com')[0m
+Redirected to http://www.example.com/users/1
+Completed in 6ms (DB: 1) | 302 Found [http://www.example.com/users]
+REQUESTING PAGE: GET http://www.example.com/users/1 with {} and HTTP headers {"HTTP_REFERER"=>"/users"}
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-30 16:47:40) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/users
+Rendering users/show
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://www.example.com/users/1]
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" IS NULL) LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'john@timetrac.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'john') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = 'd7c285c5a7e60dff745bcf6edc1f0145ec8745a4e305a3a99c2404474f1298b8fb1774d7efeae9e50c5e8def8658450693a0e2da0e5bf4e2f6de2a07d05eb1ff') LIMIT 1[0m
+  [4;35;1mUser Create (0.3ms)[0m   [0mINSERT INTO "users" ("name", "created_at", "crypted_password", "updated_at", "password_salt", "persistence_token", "login", "email") VALUES('John', '2009-11-30 22:48:28', '5edba19d12d587d3378c5787229e57f1b08c1452ad26a69ae14af01f2555e07bdf6bc1d8a4cce85417ffb4cd63c3c1ad494dd6bc1c458bb33f69ec902c56a8f0', '2009-11-30 22:48:28', '4f4urPcUugXPV32YbKp2', 'd7c285c5a7e60dff745bcf6edc1f0145ec8745a4e305a3a99c2404474f1298b8fb1774d7efeae9e50c5e8def8658450693a0e2da0e5bf4e2f6de2a07d05eb1ff', 'John', 'John@timetrac.com')[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'John') LIMIT 1[0m
+REQUESTING PAGE: GET /users/new with {} and HTTP headers {}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-30 16:48:28) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 7ms (View: 5, DB: 1) | 200 OK [http://www.example.com/users/new]
+REQUESTING PAGE: POST /users with {"commit"=>"Create", "user"=>{"name"=>"John Doe", "password_confirmation"=>"password", "password"=>"password", "login"=>"John", "email"=>"john@test.com"}} and HTTP headers {"HTTP_REFERER"=>"/users/new"}
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-11-30 16:48:28) [POST]
+  Parameters: {"commit"=>"Create", "user"=>{"name"=>"John Doe", "password_confirmation"=>"password", "login"=>"John", "password"=>"password", "email"=>"john@test.com"}}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'john@test.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'john') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '4958a1cb31c5ca2e878aaf64d7e1b537434f7d40a9a7f3d903117372e5d2f2d9292f65f18215f70f395af2f054ff6a7747080a5915b4553baf1bae7e3b3a8761') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO "users" ("name", "created_at", "crypted_password", "updated_at", "password_salt", "persistence_token", "login", "email") VALUES('John Doe', '2009-11-30 22:48:28', '138fd6e5605d0a5fbb58d4f9852db50866f0aabe57dfd091a4bfe510bf3ed752bd5a68a0aab61b8eb24e4d43c97e12d2415ba730a50cc6aad52410b771e5c248', '2009-11-30 22:48:28', 'XAS-jZCs6lQoxumY5R6m', '4958a1cb31c5ca2e878aaf64d7e1b537434f7d40a9a7f3d903117372e5d2f2d9292f65f18215f70f395af2f054ff6a7747080a5915b4553baf1bae7e3b3a8761', 'John', 'john@test.com')[0m
+Redirected to http://www.example.com/users/1
+Completed in 6ms (DB: 1) | 302 Found [http://www.example.com/users]
+REQUESTING PAGE: GET http://www.example.com/users/1 with {} and HTTP headers {"HTTP_REFERER"=>"/users"}
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-30 16:48:28) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/users
+Rendering users/show
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://www.example.com/users/1]
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" IS NULL) LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'test@timetrac.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'john doe') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '4526fb708e941618a1c938a41dcba582c250d232afa8080ebd45657610c45315ab3be2eff191b7b5b7f6f911bb80574f0885f1817f9007afb2bc7f89dd997276') LIMIT 1[0m
+  [4;35;1mUser Create (0.3ms)[0m   [0mINSERT INTO "users" ("name", "created_at", "crypted_password", "updated_at", "password_salt", "persistence_token", "login", "email") VALUES('john', '2009-11-30 22:54:37', '9b85a955bdcab73212fed880b89681c895bb0534a5f8d34fbd0550777e1ff04e232b8bbc20f68d3c0d58c362f1b20625f0f0382f4a96ba36fed3acbde3d6ad7f', '2009-11-30 22:54:37', 'Depta-wdMAFXPlxCheyE', '4526fb708e941618a1c938a41dcba582c250d232afa8080ebd45657610c45315ab3be2eff191b7b5b7f6f911bb80574f0885f1817f9007afb2bc7f89dd997276', 'John Doe', 'test@timetrac.com')[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'john@timetrac.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'john') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '74fdbd893f7c4a3cfa08d1887c096e34287e4a9b8ca09512dd5c134fd8a9bf19f5e2f3e7e72d8bf451cc0f061d46521290b9bd584dbcd4dbc45f72473b596090') LIMIT 1[0m
+  [4;35;1mUser Create (0.3ms)[0m   [0mINSERT INTO "users" ("name", "created_at", "crypted_password", "updated_at", "password_salt", "persistence_token", "login", "email") VALUES('John', '2009-11-30 22:55:42', '4cd4e8ed0dd61a5a39ad63232ae8a2fd9f70cd28811ae7a1782ebc04dc7b09b0d14bd29f98066fa4c37b88bb4b3c9c4e3afa667a36292b57141209f4ec3e4540', '2009-11-30 22:55:42', 'Rqr0nH8PDob_W21yOXsu', '74fdbd893f7c4a3cfa08d1887c096e34287e4a9b8ca09512dd5c134fd8a9bf19f5e2f3e7e72d8bf451cc0f061d46521290b9bd584dbcd4dbc45f72473b596090', 'John', 'John@timetrac.com')[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'John') LIMIT 1[0m
+REQUESTING PAGE: GET /users/new with {} and HTTP headers {}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-30 16:55:42) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 7ms (View: 5, DB: 1) | 200 OK [http://www.example.com/users/new]
+REQUESTING PAGE: POST /users with {"commit"=>"Create", "user"=>{"name"=>"John Doe", "password_confirmation"=>"password", "password"=>"password", "login"=>"John", "email"=>"john@test.com"}} and HTTP headers {"HTTP_REFERER"=>"/users/new"}
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-11-30 16:55:42) [POST]
+  Parameters: {"commit"=>"Create", "user"=>{"name"=>"John Doe", "password_confirmation"=>"password", "login"=>"John", "password"=>"password", "email"=>"john@test.com"}}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'john@test.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'john') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '4da3a0d492cba01c625eb5318e33e7d37429183aef2fbb4dddf19dfbc714e60882710b10285dcb475a5d6a4a4dfcb1ac1fd2634ebadff345bc7cc32baef278be') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO "users" ("name", "created_at", "crypted_password", "updated_at", "password_salt", "persistence_token", "login", "email") VALUES('John Doe', '2009-11-30 22:55:42', 'c409f513e58ff9331b75b2c70bb91e4363240401ef50c94d989cf7f11a4a941227a7f0505895901d834a51f680f85cfa90bdf38d6acdd9a7f4f8bca52da5fb9d', '2009-11-30 22:55:42', 'OPwFeq49QheqOBJ8zC_k', '4da3a0d492cba01c625eb5318e33e7d37429183aef2fbb4dddf19dfbc714e60882710b10285dcb475a5d6a4a4dfcb1ac1fd2634ebadff345bc7cc32baef278be', 'John', 'john@test.com')[0m
+Redirected to http://www.example.com/users/2
+Completed in 6ms (DB: 1) | 302 Found [http://www.example.com/users]
+REQUESTING PAGE: GET http://www.example.com/users/2 with {} and HTTP headers {"HTTP_REFERER"=>"/users"}
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-30 16:55:42) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendering template within layouts/users
+Rendering users/show
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://www.example.com/users/2]
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" IS NULL) LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'john@timetrac.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'john') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '8f734eb84bfd23ef9a8fa919413662fa90b8541dc16769e011139dce73dc9f27a8ff06d92ce61241d8d3603e67023be90dac96e37df010b766bfa64ece8ee906') LIMIT 1[0m
+  [4;35;1mUser Create (0.3ms)[0m   [0mINSERT INTO "users" ("name", "created_at", "crypted_password", "updated_at", "password_salt", "persistence_token", "login", "email") VALUES('John', '2009-11-30 22:56:10', '159f9c94a0f98ff1dcd1ec7878102c5451b0fc202cba603f5df1443d97e94c33dd4f7b582070e69c5996fe5b81e2d833e4ee9be324574d687c78d530500611a9', '2009-11-30 22:56:10', 'A_P6NCa5LuGWxvDe3aQU', '8f734eb84bfd23ef9a8fa919413662fa90b8541dc16769e011139dce73dc9f27a8ff06d92ce61241d8d3603e67023be90dac96e37df010b766bfa64ece8ee906', 'John', 'John@timetrac.com')[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'John') LIMIT 1[0m
+REQUESTING PAGE: GET /users/new with {} and HTTP headers {}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-30 16:56:10) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 7ms (View: 5, DB: 1) | 200 OK [http://www.example.com/users/new]
+REQUESTING PAGE: POST /users with {"commit"=>"Create", "user"=>{"name"=>"John Doe", "password_confirmation"=>"password", "password"=>"password", "login"=>"John", "email"=>"john@test.com"}} and HTTP headers {"HTTP_REFERER"=>"/users/new"}
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-11-30 16:56:10) [POST]
+  Parameters: {"commit"=>"Create", "user"=>{"name"=>"John Doe", "password_confirmation"=>"password", "login"=>"John", "password"=>"password", "email"=>"john@test.com"}}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'john@test.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'john') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '492acdfe77fa9c98e99a2a32f4013354f9938da0a5af60db953a07a3a470e46aa97028735b3c13d4d02716a2c468f1389898b024b1bfc523a092d86065a5a2c7') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO "users" ("name", "created_at", "crypted_password", "updated_at", "password_salt", "persistence_token", "login", "email") VALUES('John Doe', '2009-11-30 22:56:10', 'f18f5d59ed83bbc48a71a40919cdd05de798415ca0c5be7ecd29f54268949880205e98370e685dad5d77d382bc01637bd3d22dac8488dfc4a50536f3daf60072', '2009-11-30 22:56:10', 'JRVW4WthBy8lc_gwiibr', '492acdfe77fa9c98e99a2a32f4013354f9938da0a5af60db953a07a3a470e46aa97028735b3c13d4d02716a2c468f1389898b024b1bfc523a092d86065a5a2c7', 'John', 'john@test.com')[0m
+Redirected to http://www.example.com/users/2
+Completed in 6ms (DB: 1) | 302 Found [http://www.example.com/users]
+REQUESTING PAGE: GET http://www.example.com/users/2 with {} and HTTP headers {"HTTP_REFERER"=>"/users"}
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-30 16:56:10) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendering template within layouts/users
+Rendering users/show
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://www.example.com/users/2]
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" IS NULL) LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'john@timetrac.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'john') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = 'd88bb3977dc5b489d7b257c563d2747c34c479df262f30ef528ccdba54c910ec84e8a1b6f591a5f1ed33ebd51e0ea5064ffaa42994797782cb66579f5b539b95') LIMIT 1[0m
+  [4;35;1mUser Create (0.3ms)[0m   [0mINSERT INTO "users" ("name", "created_at", "crypted_password", "updated_at", "password_salt", "persistence_token", "login", "email") VALUES('John', '2009-11-30 22:56:17', '6ab07e32aafa1b00bb430648ea265017da01d23f6de2f4f087ffe0eb574d106a43d2af39190aec50c139cdbcc9c9b91223c7143fac1af6a2438636194a0933ad', '2009-11-30 22:56:17', '8LovG3iDdgKspq2QBnsc', 'd88bb3977dc5b489d7b257c563d2747c34c479df262f30ef528ccdba54c910ec84e8a1b6f591a5f1ed33ebd51e0ea5064ffaa42994797782cb66579f5b539b95', 'John', 'John@timetrac.com')[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'John') LIMIT 1[0m
+REQUESTING PAGE: GET /users/new with {} and HTTP headers {}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-30 16:56:17) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 7ms (View: 5, DB: 1) | 200 OK [http://www.example.com/users/new]
+REQUESTING PAGE: POST /users with {"commit"=>"Create", "user"=>{"name"=>"John Doe", "password_confirmation"=>"password", "password"=>"password", "login"=>"John", "email"=>"john@test.com"}} and HTTP headers {"HTTP_REFERER"=>"/users/new"}
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-11-30 16:56:17) [POST]
+  Parameters: {"commit"=>"Create", "user"=>{"name"=>"John Doe", "password_confirmation"=>"password", "login"=>"John", "password"=>"password", "email"=>"john@test.com"}}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'john@test.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'john') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '5dde71a8b04e48a0a594837bc063187e861d4978b103b0d68302684b965794918d62f3078f0a3127f9f044996beba6db0d7be969f30aa8c38bc98ac34bc8c2bb') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO "users" ("name", "created_at", "crypted_password", "updated_at", "password_salt", "persistence_token", "login", "email") VALUES('John Doe', '2009-11-30 22:56:17', 'f921e964d0c40518812b9224e85ba33f56008a828474738aca795847e5b8b89a6417e5488fe0b1e3c21fc6961c4a1519e87ee5f10767c78ae2a540d8b61b57d0', '2009-11-30 22:56:17', 'CcCDIAQSivnLSU94QNj5', '5dde71a8b04e48a0a594837bc063187e861d4978b103b0d68302684b965794918d62f3078f0a3127f9f044996beba6db0d7be969f30aa8c38bc98ac34bc8c2bb', 'John', 'john@test.com')[0m
+Redirected to http://www.example.com/users/2
+Completed in 6ms (DB: 1) | 302 Found [http://www.example.com/users]
+REQUESTING PAGE: GET http://www.example.com/users/2 with {} and HTTP headers {"HTTP_REFERER"=>"/users"}
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-30 16:56:17) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendering template within layouts/users
+Rendering users/show
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://www.example.com/users/2]
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" IS NULL) LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'john@timetrac.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'john') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '8c68bfe9238b354086d6d2f2cabab8018c1f2d193a35096a82c525439bc4438965de45805e11a3fec9b80bf18e463cc8ad60d8f811085ec0291ac8164559f7a4') LIMIT 1[0m
+  [4;35;1mUser Create (0.3ms)[0m   [0mINSERT INTO "users" ("name", "created_at", "crypted_password", "updated_at", "password_salt", "persistence_token", "login", "email") VALUES('John', '2009-11-30 22:57:23', '1b39f8ed5af3b44caacb3abda3f78fb9a101177e1a51c1e34f727b75862453f4ae33a4b6b644082e843c9f1686b4ebc4aee0e4a7d0d17b284e666bb3fee1fa5e', '2009-11-30 22:57:23', 'Tp2_Gw40X7dHmKGy6rOe', '8c68bfe9238b354086d6d2f2cabab8018c1f2d193a35096a82c525439bc4438965de45805e11a3fec9b80bf18e463cc8ad60d8f811085ec0291ac8164559f7a4', 'John', 'John@timetrac.com')[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'John') LIMIT 1[0m
+REQUESTING PAGE: GET /users/new with {} and HTTP headers {}
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-11-30 16:57:23) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 7ms (View: 6, DB: 1) | 200 OK [http://www.example.com/users/new]
+REQUESTING PAGE: POST /users with {"commit"=>"Create", "user"=>{"name"=>"John Doe", "password_confirmation"=>"password", "password"=>"password", "login"=>"John", "email"=>"john@test.com"}} and HTTP headers {"HTTP_REFERER"=>"/users/new"}
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-11-30 16:57:23) [POST]
+  Parameters: {"commit"=>"Create", "user"=>{"name"=>"John Doe", "password_confirmation"=>"password", "login"=>"John", "password"=>"password", "email"=>"john@test.com"}}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'john@test.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'john') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '138669b2827203605897d3cd7e282130d0f7ce278c2474a61c80f2b4991be01609814bf92af9824c9de99e95ba0d0bbf16fd1a05c02a910966829237ac41f625') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO "users" ("name", "created_at", "crypted_password", "updated_at", "password_salt", "persistence_token", "login", "email") VALUES('John Doe', '2009-11-30 22:57:23', '5df31419e8987bdbdfabe6864dbed64ad56433e834c34c94064bbf742bc258d3d778c5fb35f62e8794775c85b2ce6db5833289aa79afa079bce9bdcc99b5859e', '2009-11-30 22:57:23', 'jt-b2O6jogr0M14p--yS', '138669b2827203605897d3cd7e282130d0f7ce278c2474a61c80f2b4991be01609814bf92af9824c9de99e95ba0d0bbf16fd1a05c02a910966829237ac41f625', 'John', 'john@test.com')[0m
+Redirected to http://www.example.com/users/2
+Completed in 6ms (DB: 1) | 302 Found [http://www.example.com/users]
+REQUESTING PAGE: GET http://www.example.com/users/2 with {} and HTTP headers {"HTTP_REFERER"=>"/users"}
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-11-30 16:57:23) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendering template within layouts/users
+Rendering users/show
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://www.example.com/users/2]
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'John') LIMIT 1[0m

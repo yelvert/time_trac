@@ -22,4 +22,7 @@ production:
   timeout: 5000
 
 cucumber:
-  <<: *TEST
+  adapter: sqlite3
+  database: db/cucumber.sqlite3
+  pool: 5
+  timeout: 5000

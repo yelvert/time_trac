@@ -10,6 +10,13 @@ module NavigationHelpers
     
     when /the home\s?page/
       '/'
+      
+    #User paths
+    when /the new user page/
+      '/users/new'
+      
+    when /"(.+)"'s user page/
+      "/users/#{User.find_by_login($1).id}"
     
     # Add more mappings here.
     # Here is a more fancy example:
